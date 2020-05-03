@@ -2,11 +2,11 @@
   <head>
   <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>centos | 希言</title>
+<title>linux | 希言</title>
 <link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588472742962">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://marsleoguo.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="centos | 希言 - Atom Feed" href="https://marsleoguo.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="linux | 希言 - Atom Feed" href="https://marsleoguo.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
@@ -70,31 +70,46 @@
 
         <div class="current-tag-container">
             <h2 class="title">
-                标签：# centos
+                标签：# linux
             </h2> 
         </div>
         <div class="post-container">
   
     <article class="post">
-      <a href="https://marsleoguo.github.io/post/centos-xiang-guan/">
-        <h2 class="post-title">centos相关</h2>
+      <a href="https://marsleoguo.github.io/post/多端口部署操作/">
+        <h2 class="post-title">多端口部署操作</h2>
       </a>
       <div class="post-info">
         <span>
-          2020-05-03
+          2017-07-19
         </span>
         <span>
-          7 min read
+          8 min read
         </span>
         
-          <a href="https://marsleoguo.github.io/tag/k78BlDHfQ/" class="post-tag">
-            # centos
+          <a href="https://marsleoguo.github.io/tag/5OhUe5ov1M/" class="post-tag">
+            # linux
           </a>
         
       </div>
       
       <div class="post-abstract">
-        
+        <h1 id="多端口部署操作">多端口部署操作</h1>
+<hr>
+<h2 id="mysql多端口部署操作">mysql多端口部署操作</h2>
+<h3 id="部署前说明">部署前说明</h3>
+<p>部署mysql多端口前，请确保服务器上已经有mysql数据库。这里不在重复，mysql数据库安装及配置。</p>
+<h3 id="创建数据库存放目录">创建数据库存放目录</h3>
+<p>在Xshell或SSH上登录服务器，在控制台中使用<code>mkdir -p /home/mysql/mysqlDB/文件夹名称</code>，创建数据存放目录。</p>
+<blockquote>
+<p>注:多端口可以在data目录后追加端口号，这样便利后期查询启动错误日志。例如：</p>
+</blockquote>
+<pre><code>mkdir -p /home/mysql/mysqlDB/data3306
+mkdir -p /home/mysql/mysqlDB/data4306
+</code></pre>
+<p>如下图所示：<br>
+<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494309506470.png" alt="Alt text" loading="lazy"></p>
+
       </div>
     </article>
   

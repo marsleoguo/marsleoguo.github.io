@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://marsleoguo.github.io</id>
     <title>希言</title>
-    <updated>2020-05-03T02:21:49.710Z</updated>
+    <updated>2020-05-03T02:26:01.489Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://marsleoguo.github.io"/>
     <link rel="self" href="https://marsleoguo.github.io/atom.xml"/>
@@ -436,6 +436,358 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
 </ol>
 <pre><code>quit;
 </code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[linux创建快捷方式-intellij-idea]]></title>
+        <id>https://marsleoguo.github.io/post/创建快捷键/</id>
+        <link href="https://marsleoguo.github.io/post/创建快捷键/">
+        </link>
+        <updated>2017-08-05T03:50:14.000Z</updated>
+        <content type="html"><![CDATA[<p>打开终端，输入如下命令：</p>
+<p><code>sudo vim /usr/share/applications/intellij-idea.desktop</code><br>
+将下面的内容粘贴到 <code>intellij-idea.desktop</code> 文件中：</p>
+<pre><code>[Desktop Entry]
+Name=IntelliJ IDEA
+Exec=/home/xring/Tools/idea-IU-141.1532.4/bin/idea.sh
+Comment=IntelliJ IDEA
+Icon=/home/xring/Tools/idea-IU-141.1532.4/bin/idea.png
+Type=Application
+Terminal=false
+Encoding=UTF-8
+</code></pre>
+<p>注意 将<code>/home/xring/Tools/idea-IU-141.1532.4/</code>这段路径换成自己的情况。</p>
+<p>其中 <code>Exec</code> 就是平时用终端打开<code>IntelliJ IDEA</code>的命令， <code>Icon</code> 是图标文件。</p>
+<p>然后在终端执行：<br>
+<code>sudo chmod +x /usr/share/applications/intellij-idea.desktop</code><br>
+此时在 <code>/usr/share/applications/</code> 目录下便有了<code>IntelliJ IDEA</code>的快捷方式，按下 <code>Win</code>键 找到<code>IntelliJ IDEA</code>直接拖到<code>Launcher</code>可创建<code>Launcher</code>快捷方式，直接将 <code>/usr/share/applications/intellij-idea.desktop</code>文件复制到桌面上即可创建桌面快捷方式。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[对注册表项xxxx的访问被拒绝。的解决办法]]></title>
+        <id>https://marsleoguo.github.io/post/对注册表项xxxx的访问被拒绝。的解决办法/</id>
+        <link href="https://marsleoguo.github.io/post/对注册表项xxxx的访问被拒绝。的解决办法/">
+        </link>
+        <updated>2017-08-05T03:50:14.000Z</updated>
+        <summary type="html"><![CDATA[<ol>
+<li>
+<p>首先打开注册表编辑器，XP系统从开始菜单，运行，输入 regedit ，回车；Windows Vista或者以上系统，点开始菜单，搜索程序和文件，输入regedit ，然后点击 regedit.exe 这个文件，如下：<br>
+<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1309172353a31c9dc6f739d938.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>注册表编辑器导航到 <code>HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main</code> 这个项<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1309172357a82a657a9cc355df.png" alt="" loading="lazy"></p>
+</li>
+</ol>
+]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>
+<p>首先打开注册表编辑器，XP系统从开始菜单，运行，输入 regedit ，回车；Windows Vista或者以上系统，点开始菜单，搜索程序和文件，输入regedit ，然后点击 regedit.exe 这个文件，如下：<br>
+<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1309172353a31c9dc6f739d938.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>注册表编辑器导航到 <code>HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main</code> 这个项<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1309172357a82a657a9cc355df.png" alt="" loading="lazy"></p>
+<!--more-->
+</li>
+<li>
+<p>在菜单里点  编辑， 权限，打开权限编辑窗口</p>
+<p>然后，对 当前登录的用户或者用户组，典型的为Administrators用户组，设置完全控制权限</p>
+<figure data-type="image" tabindex="1"><img src="http://pp05hamo9.bkt.clouddn.com/picGo/13091800110aa26c4db4e3636f.png" alt="" loading="lazy"></figure>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[多端口部署操作]]></title>
+        <id>https://marsleoguo.github.io/post/多端口部署操作/</id>
+        <link href="https://marsleoguo.github.io/post/多端口部署操作/">
+        </link>
+        <updated>2017-07-19T03:20:02.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="多端口部署操作">多端口部署操作</h1>
+<hr>
+<h2 id="mysql多端口部署操作">mysql多端口部署操作</h2>
+<h3 id="部署前说明">部署前说明</h3>
+<p>部署mysql多端口前，请确保服务器上已经有mysql数据库。这里不在重复，mysql数据库安装及配置。</p>
+<h3 id="创建数据库存放目录">创建数据库存放目录</h3>
+<p>在Xshell或SSH上登录服务器，在控制台中使用<code>mkdir -p /home/mysql/mysqlDB/文件夹名称</code>，创建数据存放目录。</p>
+<blockquote>
+<p>注:多端口可以在data目录后追加端口号，这样便利后期查询启动错误日志。例如：</p>
+</blockquote>
+<pre><code>mkdir -p /home/mysql/mysqlDB/data3306
+mkdir -p /home/mysql/mysqlDB/data4306
+</code></pre>
+<p>如下图所示：<br>
+<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494309506470.png" alt="Alt text" loading="lazy"></p>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="多端口部署操作">多端口部署操作</h1>
+<hr>
+<h2 id="mysql多端口部署操作">mysql多端口部署操作</h2>
+<h3 id="部署前说明">部署前说明</h3>
+<p>部署mysql多端口前，请确保服务器上已经有mysql数据库。这里不在重复，mysql数据库安装及配置。</p>
+<h3 id="创建数据库存放目录">创建数据库存放目录</h3>
+<p>在Xshell或SSH上登录服务器，在控制台中使用<code>mkdir -p /home/mysql/mysqlDB/文件夹名称</code>，创建数据存放目录。</p>
+<blockquote>
+<p>注:多端口可以在data目录后追加端口号，这样便利后期查询启动错误日志。例如：</p>
+</blockquote>
+<pre><code>mkdir -p /home/mysql/mysqlDB/data3306
+mkdir -p /home/mysql/mysqlDB/data4306
+</code></pre>
+<p>如下图所示：<br>
+<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494309506470.png" alt="Alt text" loading="lazy"></p>
+<!-- more -->
+<h3 id="创建mysqlsock代理文件夹">创建mysqlSock代理文件夹</h3>
+<p>在控制台中使用<code>mkdir -p /home/mysqlsock/文件名称</code>，创建数据存放目录。</p>
+<blockquote>
+<p>注:以多端口号作为文件名称。例如:</p>
+</blockquote>
+<pre><code>mkdir -p /home/mysql/mysqlsock/
+</code></pre>
+<p>详情如图：</p>
+<figure data-type="image" tabindex="1"><img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494471320053.png" alt="Alt text" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="%E5%A4%9A%E7%AB%AF%E5%8F%A3%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C/markdown-img-paste-20170823163340608.png" alt="Alt text" loading="lazy"></figure>
+<h3 id="复制和配置mycnf">复制和配置my.cnf</h3>
+<h4 id="复制mycnf配置文件">复制my.cnf配置文件：</h4>
+<p>执行下面语句复制mysql数据库配置文件到<code>/etc/</code>目录下并更名为<code>my3306.cnf</code>。<strong>重复命令建立my4306.cnf</strong>。</p>
+<pre><code>cp /usr/local/mysql/my.cnf  /etc/my3306.cnf
+</code></pre>
+<p>详情如下图所示：<br>
+<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494310049070.png" alt="Alt text" loading="lazy"></p>
+<h4 id="配置mycnf配置文件">配置my.cnf配置文件：</h4>
+<ol>
+<li><strong>配置my3306.cnf配置文件：</strong>
+<ol>
+<li>
+<p>在控制台中使用命令<code>vim /etc/my3306.cnf</code>编辑配置文件。</p>
+</li>
+<li>
+<p>按<code>Insert</code>进入编辑模式</p>
+<ol>
+<li>修改<code>mysqld</code>标签：
+<ul>
+<li>在<code>[mysqld]</code>标签下添加命令:</li>
+<li>修改<code>datadir = /home/mysql/mysqlDB/data3306</code></li>
+<li>增加<code>port = 3306</code></li>
+<li>增加<code>socket = /home/mysql/mysqlsock/sock3306.sock</code></li>
+</ul>
+</li>
+<li>增加<code>[client]</code>标签
+<ul>
+<li>移动光标至文本末端</li>
+<li>增加<code>default-character-set=utf8</code></li>
+<li>增加<code>port = 3306</code></li>
+<li>增加<code>socket = /home/mysql/mysqlsock/sock3306.sock</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>保存文档<code>ESC+wq</code> 保存退出。</p>
+</li>
+</ol>
+</li>
+<li><strong>配置my4306.cnf配置文件</strong>
+<ol>
+<li>
+<p>在控制台中使用命令<code>vim /etc/my4306.cnf</code>编辑配置文件。</p>
+</li>
+<li>
+<p>按<code>Insert</code>进入编辑模式</p>
+<ol>
+<li>修改<code>mysqld</code>标签：
+<ul>
+<li>在<code>[mysqld]</code>标签下添加命令:</li>
+<li>修改<code>datadir = /home/mysql/mysqlDB/data4306</code></li>
+<li>增加<code>port = 4306</code></li>
+<li>增加<code>socket = /home/mysql/mysqlsock/sock4306.sock</code></li>
+</ul>
+</li>
+<li>增加<code>[client]</code>标签
+<ul>
+<li>移动光标至文本末端</li>
+<li>增加<code>default-character-set=utf8</code></li>
+<li>增加<code>port = 4306</code></li>
+<li>增加<code>socket = /home/mysql/mysqlsock/sock4306.sock</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>保存文档<code>ESC+wq</code> 保存退出。</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>代码举例如下：<br>
+**[mysqld]**标签</p>
+<pre><code>[mysqld]
+basedir    = /usr/local/mysql
+datadir = /home/mysql/mysqlDB/data4306
+port = 4306
+socket = /home/mysql/mysqlsock/sock4306.sock
+</code></pre>
+<p>**[client]**标签</p>
+<pre><code>[client]
+default-character-set=utf8
+port = 4306
+socket = /home/mysql/mysqlsock/sock4306.sock
+</code></pre>
+<h3 id="赋予目录权限和初始化数据库">赋予目录权限和初始化数据库</h3>
+<ol>
+<li>
+<p>赋予目录权限</p>
+<ol>
+<li>执行<code>chown -R mysql:mysql /home/mysql/mysqlDB/</code>,赋予数据库目录，mysql用户权限。</li>
+<li>执行<code>chown -R mysql:mysql /home/mysql/mysqlsock/</code>,赋予数据库日志目录，mysql用户权限。如下图所示：<br>
+<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494471394411.png" alt="Alt text" loading="lazy"></li>
+</ol>
+</li>
+<li>
+<p><strong>初始化3306数据库：</strong></p>
+<ol>
+<li>执行<code>cd /usr/local/mysql</code> ,进入mysql目录中，</li>
+<li>执行<code>scripts/mysql_install_db --user=mysql --datadir=/home/mysql/mysqlDB/data3306/</code>,</li>
+</ol>
+</li>
+<li>
+<p><strong>初始化4306端口数据库：</strong></p>
+<ol>
+<li>执行<code>cd /usr/local/mysql</code> ,进入mysql目录中，</li>
+<li>执行<code>scripts/mysql_install_db --user=mysql --datadir=/home/mysql/mysqlDB/data4306/</code>,</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>注：每个<code>--</code>之前都有空格</p>
+</blockquote>
+<h3 id="启动mysql多端口和root用户设置">启动mysql多端口和root用户设置</h3>
+<ol>
+<li>
+<p><strong>设置3306</strong></p>
+<ol>
+<li>设置<code>3306</code>端口数据库启动使用命令</li>
+</ol>
+<pre><code>/usr/local/mysql/bin/mysqld_safe --defaults-file=/etc/my3306.cnf --basedir=/usr/local/mysql/ --datadir=/home/mysql/mysqlDB/data3306/ --user=mysql --skip-grant-tables &amp;
+</code></pre>
+<pre><code> &gt; 注：其中`--skip-grant-tables`是跳过授权
+</code></pre>
+<ol start="2">
+<li>设置<code>3306</code>端口数据库root用户</li>
+<li>登录mysql数据库：<code>mysql -uroot -S /home/mysql/mysqlsock/sock3306.sock -P 3306</code></li>
+<li>修改密码：
+<ol>
+<li>使用mysql数据库 <code>use mysql;</code></li>
+<li>设置密码<code>update user set password=password('mnt123!@#asd') where user='root' and host='localhost';</code></li>
+<li>刷新授权<code>flush privileges;</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>设置4306</strong></p>
+<ol>
+<li>设置<code>4306</code>端口数据库启动使用命令</li>
+</ol>
+<pre><code>/usr/local/mysql/bin/mysqld_safe --defaults-file=/etc/my4306.cnf --basedir=/usr/local/mysql/ --datadir=/home/mysql/mysqlDB/data4306/ --user=mysql --skip-grant-tables &amp;
+</code></pre>
+<pre><code> &gt; 注：其中`--skip-grant-tables`是跳过授权
+</code></pre>
+<ol start="2">
+<li>设置<code>4306</code>端口数据库root用户</li>
+<li>登录mysql数据库：<code>mysql -uroot -S /home/mysql/mysqlsock/sock4306.sock -P 4306</code></li>
+<li>修改密码：
+<ol>
+<li>使用mysql数据库 <code>use mysql;</code></li>
+<li>设置密码<code>update user set password=password('mnt123!@#asd') where user='root' and host='localhost';</code></li>
+<li>刷新授权<code>flush privileges;</code></li>
+<li>停止当前服务</li>
+<li>查看当前mysql的进程：<code>ps -ef|grep mysql</code></li>
+<li><code>kill -9 进程ID</code> 停止所有4306相关的进程</li>
+<li>重新启动<code>mysql</code>。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="多端口登陆并设置远程登陆">多端口登陆并设置远程登陆</h3>
+<ol>
+<li>执行<code>mysql -uroot -p'mnt123!@#asd' -S /home/mysql/mysqlsock/sock4306.sock -P 3306</code>登录数据库。</li>
+<li>执行<code>GRANT ALL PRIVILEGES ON core_db.* TO maiyam@&quot;%&quot; IDENTIFIED BY '123!@#asd';</code>配置远程登录用户使用命令。</li>
+</ol>
+<blockquote>
+<p>注:其中core_db是要授权的数据库，也可以直接使用*.*直接授予所有数据库权限。</p>
+</blockquote>
+<h3 id="设置防火墙">设置防火墙</h3>
+<pre><code>sed -i &quot;/--dport 22/a\\-A INPUT -m state --state NEW -m tcp -p  tcp --dport 3306 -j ACCEPT &quot; /etc/sysconfig/iptables;
+sed -i &quot;/--dport 3306 /a\\-A INPUT -m state --state NEW -m tcp -p tcp --dport 4306 -j ACCEPT&quot; /etc/sysconfig/iptables;
+sed -i &quot;/--dport 4306 /a\\-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT&quot; /etc/sysconfig/iptables;
+service iptables restart;
+</code></pre>
+<h3 id="停止服务和启动服务">停止服务和启动服务</h3>
+<ol>
+<li>停止命令：</li>
+</ol>
+<pre><code>mysqladmin -h127.0.0.1 -uroot -p'mnt123!@#asd' -P3306 shutdown
+</code></pre>
+<ol start="2">
+<li>启动命令</li>
+</ol>
+<pre><code>	/usr/local/mysql/bin/mysqld_safe --defaults-file=/etc/my3306.cnf --basedir=/usr/local/mysql/ --datadir=/home/mysql/mysqlDB/data3306/ --user=mysql &amp;
+</code></pre>
+<p><code>mysql</code>多端口部署完成，通过远程登陆选择对应端口，自行导入数据库即可。</p>
+<hr>
+<h2 id="tomcat多端口部署操作">tomcat多端口部署操作</h2>
+<h3 id="部署前说明-2">部署前说明</h3>
+<p>部署tomcat多端口前，请确保服务器上已经有tomcat。这里不在重复，tomcat安装及配置。</p>
+<h3 id="tomcat部署前配置">tomcat部署前配置</h3>
+<ol>
+<li>在<code>Xshell</code>或<code>SSH</code>命令窗口中使用<code>cd /usr/local/tomcat/conf</code>,进入<code>tomcat/conf</code>目录中。</li>
+<li>通过<code>Xftp</code>将目中的<code>Server.xml</code>下载到本地并复制一份更名<code>Serverbak.xml</code>保存，以便修改失败恢复用。</li>
+<li>编辑<code>server.xml</code> ，在文件末端<code>&lt;/Service&gt;</code>标签与<code>&lt;/Server&gt;</code>。如下图所示。<br>
+<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494471809610.png" alt="Alt text" loading="lazy"></li>
+<li>在<code>&lt;/Service&gt;</code>和<code>&lt;/Server&gt;</code>中填入如下配置：</li>
+</ol>
+<pre><code class="language-xml">&lt;Service name=&quot;Catalina1&quot;&gt; &lt;!--设置服务的名字，注意名字不能重复!这里设
+置服务名为：Catalinal--&gt;
+&lt;Connector port=&quot;8090&quot; protocol=&quot;HTTP/1.1&quot;
+connectionTimeout=&quot;20000&quot;
+redirectPort=&quot;8443&quot; URIEncoding=&quot;UTF-8&quot;/&gt;&lt;!-- 设置
+服务连接地址的端口号，端口号也不能与系统中其他的端口号重复,这里设置8090--&gt;
+&lt;Connector port=&quot;8888&quot; enableLookups=&quot;false&quot; redirectPort=&quot;844
+3&quot; protocol=&quot;AJP/1.3&quot; /&gt;
+&lt;Engine name=&quot;Catalina1&quot; defaultHost=&quot;localhost&quot;&gt;&lt;!--设置Servl
+et引擎的名字,这个设置Catalina1--&gt;
+&lt;Realm className=&quot;org.apache.catalina.realm.LockOutRealm&quot;&gt;
+&lt;Realm className=&quot;org.apache.catalina.realm.UserDatabaseRealm&quot; resourceName=&quot;UserDatabase&quot;/&gt;
+&lt;/Realm&gt;
+      &lt;Host name=&quot;localhost&quot;  appBase=&quot;webapps1&quot;
+            unpackWARs=&quot;true&quot; autoDeploy=&quot;true&quot;&gt;
+        &lt;Valve className=&quot;org.apache.catalina.valves.AccessLogValve&quot; directory=&quot;logs&quot;
+               prefix=&quot;localhost_access_log.&quot; suffix=&quot;.txt&quot;
+               pattern=&quot;%h %l %u %t &amp;quot;%r&amp;quot; %s %b&quot; /&gt;
+
+      &lt;/Host&gt;
+&lt;/Engine&gt;
+&lt;/Service&gt;
+
+</code></pre>
+<ol start="5">
+<li>配置完成后保存。将修改后的Server.xml，通过Xftp到会到/usr/local/tomcat/conf/目录下，覆盖原文件。</li>
+</ol>
+<h3 id="说明红色部分需要注意">说明:红色部分需要注意</h3>
+<h3 id="停止tomcat服务和重启tomcat服务">停止tomcat服务和重启tomcat服务</h3>
+<h4 id="查看进程">查看进程：</h4>
+<p>执行<code>ps –ef |grep tomcat</code>，查看tomcat在linux中的进程号。如图所示：<br>
+<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494471921767.png" alt="Alt text" loading="lazy"></p>
+<blockquote>
+<p><code>14396</code>就是当前运行<code>tomcat</code>的进程号。</p>
+</blockquote>
+<h4 id="停止进程">停止进程：</h4>
+<p>执行<code>kill -9 14396</code> 停止<code>tomcat</code>服务。</p>
+<h4 id="启动进程">启动进程：</h4>
+<ol>
+<li>执行<code>cd /usr/local/tomcat/bin</code>，进入tomcat/bin目录中.</li>
+<li>在命令窗口中输入<code>./startup.sh</code>启动<code>tomcat</code>程序。如图所示：<br>
+<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494472002998.png" alt="Alt text" loading="lazy"></li>
+</ol>
 ]]></content>
     </entry>
 </feed>
