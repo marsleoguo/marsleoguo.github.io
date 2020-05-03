@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://marsleoguo.github.io</id>
     <title>希言</title>
-    <updated>2020-05-03T02:14:36.946Z</updated>
+    <updated>2020-05-03T02:17:04.415Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://marsleoguo.github.io"/>
     <link rel="self" href="https://marsleoguo.github.io/atom.xml"/>
@@ -16,13 +16,7 @@
         <link href="https://marsleoguo.github.io/post/centos-xiang-guan/">
         </link>
         <updated>2020-05-03T02:14:15.000Z</updated>
-        <summary type="html"><![CDATA[<hr>
-<p>title: centos相关<br>
-date: 2017-07-21 14:28:56<br>
-tags: centos<br>
-categories: centos</p>
-<hr>
-<h4 id="查看ip地址">查看<code>ip</code>地址</h4>
+        <summary type="html"><![CDATA[<h4 id="查看ip地址">查看<code>ip</code>地址</h4>
 <pre><code>ifconfig
 </code></pre>
 <h4 id="修改centos语言为中文">修改<code>centos</code>语言为中文</h4>
@@ -33,13 +27,7 @@ categories: centos</p>
 <li>第四步：刷新<code>profile</code>文件。<code>source /etc/profile</code></li>
 </ul>
 ]]></summary>
-        <content type="html"><![CDATA[<hr>
-<p>title: centos相关<br>
-date: 2017-07-21 14:28:56<br>
-tags: centos<br>
-categories: centos</p>
-<hr>
-<h4 id="查看ip地址">查看<code>ip</code>地址</h4>
+        <content type="html"><![CDATA[<h4 id="查看ip地址">查看<code>ip</code>地址</h4>
 <pre><code>ifconfig
 </code></pre>
 <h4 id="修改centos语言为中文">修改<code>centos</code>语言为中文</h4>
