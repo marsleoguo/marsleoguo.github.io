@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588472941850">
+<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588476913693">
 <link rel="stylesheet" href="https://marsleoguo.github.io/styles/main.css">
 
 
@@ -19,12 +19,13 @@
 
 
     <meta name="description" content="
+多端口部署操作
 
 mysql多端口部署操作
 部署前说明
 部署mysql多端口前，请确保服务器上已经有mysql数据库。这里不在重复，mysql数据库安装及配置。
 创建数据库存放目录
-在Xshell或SSH上登录服务器，在控制台中使用mkdir -p /h..." />
+在Xshell或SSH上登录服务器，在控制台中使用mkd..." />
     <meta name="keywords" content="linux" />
   </head>
   <body>
@@ -34,7 +35,7 @@ mysql多端口部署操作
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://marsleoguo.github.io">
-        <img src="https://marsleoguo.github.io/images/avatar.png?v=1588472941850" class="site-logo">
+        <img src="https://marsleoguo.github.io/images/avatar.png?v=1588476913693" class="site-logo">
         <h1 class="site-title">希言</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -101,6 +102,7 @@ mysql多端口部署操作
             
             <div class="post-content" v-pre>
               <!-- more -->
+<h1 id="多端口部署操作">多端口部署操作</h1>
 <hr>
 <h2 id="mysql多端口部署操作">mysql多端口部署操作</h2>
 <h3 id="部署前说明">部署前说明</h3>
@@ -114,8 +116,7 @@ mysql多端口部署操作
 mkdir -p /home/mysql/mysqlDB/data4306
 </code></pre>
 <p>如下图所示：<br>
-<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494309506470.png" alt="Alt text" loading="lazy"></p>
-<!-- more -->
+<img src="https://raw.githubusercontent.com/marsleoguo/bed/master/1494309506470.png" alt="Alt text" loading="lazy"></p>
 <h3 id="创建mysqlsock代理文件夹">创建mysqlSock代理文件夹</h3>
 <p>在控制台中使用<code>mkdir -p /home/mysqlsock/文件名称</code>，创建数据存放目录。</p>
 <blockquote>
@@ -124,7 +125,7 @@ mkdir -p /home/mysql/mysqlDB/data4306
 <pre><code>mkdir -p /home/mysql/mysqlsock/
 </code></pre>
 <p>详情如图：</p>
-<figure data-type="image" tabindex="1"><img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494471320053.png" alt="Alt text" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/marsleoguo/bed/master/1494471320053.png" alt="Alt text" loading="lazy"></figure>
 <figure data-type="image" tabindex="2"><img src="%E5%A4%9A%E7%AB%AF%E5%8F%A3%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C/markdown-img-paste-20170823163340608.png" alt="Alt text" loading="lazy"></figure>
 <h3 id="复制和配置mycnf">复制和配置my.cnf</h3>
 <h4 id="复制mycnf配置文件">复制my.cnf配置文件：</h4>
@@ -132,7 +133,7 @@ mkdir -p /home/mysql/mysqlDB/data4306
 <pre><code>cp /usr/local/mysql/my.cnf  /etc/my3306.cnf
 </code></pre>
 <p>详情如下图所示：<br>
-<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494310049070.png" alt="Alt text" loading="lazy"></p>
+<img src="https://raw.githubusercontent.com/marsleoguo/bed/master/1494310049070.png" alt="Alt text" loading="lazy"></p>
 <h4 id="配置mycnf配置文件">配置my.cnf配置文件：</h4>
 <ol>
 <li><strong>配置my3306.cnf配置文件：</strong>
@@ -219,7 +220,7 @@ socket = /home/mysql/mysqlsock/sock4306.sock
 <ol>
 <li>执行<code>chown -R mysql:mysql /home/mysql/mysqlDB/</code>,赋予数据库目录，mysql用户权限。</li>
 <li>执行<code>chown -R mysql:mysql /home/mysql/mysqlsock/</code>,赋予数据库日志目录，mysql用户权限。如下图所示：<br>
-<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494471394411.png" alt="Alt text" loading="lazy"></li>
+<img src="https://raw.githubusercontent.com/marsleoguo/bed/master/1494471394411.png" alt="Alt text" loading="lazy"></li>
 </ol>
 </li>
 <li>
@@ -324,7 +325,7 @@ service iptables restart;
 <li>在<code>Xshell</code>或<code>SSH</code>命令窗口中使用<code>cd /usr/local/tomcat/conf</code>,进入<code>tomcat/conf</code>目录中。</li>
 <li>通过<code>Xftp</code>将目中的<code>Server.xml</code>下载到本地并复制一份更名<code>Serverbak.xml</code>保存，以便修改失败恢复用。</li>
 <li>编辑<code>server.xml</code> ，在文件末端<code>&lt;/Service&gt;</code>标签与<code>&lt;/Server&gt;</code>。如下图所示。<br>
-<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494471809610.png" alt="Alt text" loading="lazy"></li>
+<img src="https://raw.githubusercontent.com/marsleoguo/bed/master/1494471809610.png" alt="Alt text" loading="lazy"></li>
 <li>在<code>&lt;/Service&gt;</code>和<code>&lt;/Server&gt;</code>中填入如下配置：</li>
 </ol>
 <pre><code class="language-xml">&lt;Service name=&quot;Catalina1&quot;&gt; &lt;!--设置服务的名字，注意名字不能重复!这里设
@@ -358,7 +359,7 @@ et引擎的名字,这个设置Catalina1--&gt;
 <h3 id="停止tomcat服务和重启tomcat服务">停止tomcat服务和重启tomcat服务</h3>
 <h4 id="查看进程">查看进程：</h4>
 <p>执行<code>ps –ef |grep tomcat</code>，查看tomcat在linux中的进程号。如图所示：<br>
-<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494471921767.png" alt="Alt text" loading="lazy"></p>
+<img src="https://raw.githubusercontent.com/marsleoguo/bed/master/1494471921767.png" alt="Alt text" loading="lazy"></p>
 <blockquote>
 <p><code>14396</code>就是当前运行<code>tomcat</code>的进程号。</p>
 </blockquote>
@@ -368,7 +369,7 @@ et引擎的名字,这个设置Catalina1--&gt;
 <ol>
 <li>执行<code>cd /usr/local/tomcat/bin</code>，进入tomcat/bin目录中.</li>
 <li>在命令窗口中输入<code>./startup.sh</code>启动<code>tomcat</code>程序。如图所示：<br>
-<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494472002998.png" alt="Alt text" loading="lazy"></li>
+<img src="https://raw.githubusercontent.com/marsleoguo/bed/master/1494472002998.png" alt="Alt text" loading="lazy"></li>
 </ol>
 
             </div>
@@ -381,6 +382,15 @@ et引擎的名字,这个设置Catalina1--&gt;
                 
               </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://marsleoguo.github.io/post/atom手动安装插件包/">
+                  <h3 class="post-title">
+                    atom 手动安装插件包
+                  </h3>
+                </a>
+              </div>
             
 
             

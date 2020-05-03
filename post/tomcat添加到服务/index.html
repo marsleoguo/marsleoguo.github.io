@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>tomcat添加到服务 | 希言</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588476913693">
+<link rel="stylesheet" href="https://marsleoguo.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+1.将zip版的tomcat解压:我自己的是解压到E:\tomcat-1(这个根据自己的情况而定)
+2.修改bin文件夹下的startup.bat,在第一行加入以下两句话:
+set JAVA_HOME=F:\Program Files\J..." />
+    <meta name="keywords" content="tomcat" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://marsleoguo.github.io">
+        <img src="https://marsleoguo.github.io/images/avatar.png?v=1588476913693" class="site-logo">
+        <h1 class="site-title">希言</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://marsleoguo.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">tomcat添加到服务</h2>
+            <div class="post-date">2017-08-05</div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<p>1.将zip版的tomcat解压:我自己的是解压到E:\tomcat-1(这个根据自己的情况而定)</p>
+<p>2.修改bin文件夹下的startup.bat,在第一行加入以下两句话:</p>
+<pre><code>set JAVA_HOME=F:\Program Files\Java\jdk1.6.0_04(自己机器上的jdk安装路径)
+set CATALINA_HOME=E:\tomcat-1(自己解压的tomcat的位置)
+</code></pre>
+<blockquote>
+<p>同样修改bin文件夹下的shutdown.bat.也是加入上面的那2句话。</p>
+</blockquote>
+<p>3.然后修改bin文件夹下的service.bat，修改的地方如下:</p>
+<pre><code>set SERVICE_NAME=Tomcat1(这个根据自己的情况起名字,这个名字可用中net start/stop 来启动服务)
+set PR_DISPLAYNAME=Apache Tomcat1(service.msc中显示的名字)
+</code></pre>
+<p>4.最后是在cmd命令窗口中:进入我们刚解压的tomcat-1\bin目录,然后执行</p>
+<p>service.bat install  (看到命令窗口中The service ‘Tomcat1’ has been installed ,就说明你安装服务成功)</p>
+<p>如果自己想将这个服务卸掉,可以用service.bat remove 命令将其卸载。</p>
+<p>5.到此，你就可以用net start/stop tomcat1 ,直接双击startup.bat ，shutdown.bat来直接启动或关闭服务,或者直接进去service.msc中来启动和停止服务了。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://marsleoguo.github.io/tag/VVN-lpJVi/" class="tag">
+                    tomcat
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://marsleoguo.github.io/post/创建快捷键/">
+                  <h3 class="post-title">
+                    linux创建快捷方式-intellij-idea
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

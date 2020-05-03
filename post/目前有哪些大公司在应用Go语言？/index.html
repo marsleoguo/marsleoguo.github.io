@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>目前有哪些大公司在应用Go语言？ | 希言</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588476913693">
+<link rel="stylesheet" href="https://marsleoguo.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+Go语言是谷歌推出的一种的编程语言，可以在不损失应用程序性能的情况下降低代码的复杂性。谷歌首席软件工程师罗布派克(Rob Pike)说：我们之所以开发Go，是因为过去10多年间软件开发的难度令人沮丧。派克表示，和今天的C++或C一样，Go..." />
+    <meta name="keywords" content="Go" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://marsleoguo.github.io">
+        <img src="https://marsleoguo.github.io/images/avatar.png?v=1588476913693" class="site-logo">
+        <h1 class="site-title">希言</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://marsleoguo.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">目前有哪些大公司在应用Go语言？</h2>
+            <div class="post-date">2019-03-31</div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<p>Go语言是谷歌推出的一种的编程语言，可以在不损失应用程序性能的情况下降低代码的复杂性。谷歌首席软件工程师罗布派克(Rob Pike)说：我们之所以开发Go，是因为过去10多年间软件开发的难度令人沮丧。派克表示，和今天的C++或C一样，Go是一种系统语言。他解释道，&quot;使用它可以进行快速开发，同时它还是一个真正的编译语言，我们之所以现在将其开源，原因是我们认为它已经非常有用和强大。&quot;</p>
+<p>目前应用Go语言的大公司有：</p>
+<p><strong>1、Google</strong></p>
+<p>这个不用多做介绍，作为开发Go语言的公司，当仁不让。Google基于Go有很多优秀的项目，比如：https://github.com/kubernetes/kubernetes ，大家也可以在Github上 https://github.com/google/ 查看更多Google的Go开源项目。</p>
+<p><strong>2、Facebook</strong></p>
+<p>Facebook也在用，为此他们还专门在Github上建立了一个开源组织facebookgo，大家可以通过https://github.com/facebookgo访问查看facebook开源的项目，比如著名的是平滑升级的grace。</p>
+<p><strong>3、腾讯</strong></p>
+<p>腾讯作为国内的大公司，还是敢于尝试的，尤其是Docker容器化这一块，他们在15年已经做了docker万台规模的实践，具体可以参考http://www.infoq.com/cn/articles/tencent-millions-scale-docker-application-practice 。</p>
+<p>主要职责是：</p>
+<p>负责腾讯游戏蓝鲸平台后台开发工作</p>
+<p>负责容器相关的开发工作</p>
+<p>和蓝鲸平台，容器开发有关。腾讯作为主要使用C/C++的公司，使用Go会方便很多，也有很多优势，不过日积月累的C/C++代码很难改造，也不敢动，所以新业务会在Go方面尝试。</p>
+<p><strong>4、百度</strong></p>
+<p>目前所知的百度的使用是在运维这边，是百度运维的一个BFE项目，负责前端流量的接入。他们的负责人在2016年有分享，大家可以看下这个 http://www.infoq.com/cn/presentations/application-of-golang-in-baidu-frontend .</p>
+<p>其次就是百度的消息系统，从其最近的Golang招聘介绍就可以看出来.</p>
+<p>负责公司手百消息通讯系统服务器端开发及维护</p>
+<p><strong>5、京东</strong></p>
+<p>京东云消息推送系统、云存储，以及京东商城等都有使用Go做开发。</p>
+<p><strong>6、小米</strong></p>
+<p>小米对Golang的支持，莫过于运维监控系统的开源，也就是 http://open-falcon.com/ 。</p>
+<p>此外，小米互娱、小米商城、小米视频、小米生态链等团队都在使用Golang。</p>
+<p><strong>7、360</strong></p>
+<p>360对Golang的使用也不少，一个是开源的日志搜索系统Poseidon，托管在Github上，https://github.com/Qihoo360/poseidon.</p>
+<p>还有360的推送团队也在使用，他们还写了篇博文在Golang的官方博客上 https://blog.golang.org/qihoo。</p>
+<p>360直播在招聘Golang开发工程师。</p>
+<p>美团、滴滴、新浪以及七牛等。一般的选择，都是选择用于自己公司合适的产品系统来做，比如消息推送的、监控的、容器的等，Golang特别适合做网络并发的服务，这是他的强项，所以也是被优先用于这些项目。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://marsleoguo.github.io/tag/MVo-trukcq/" class="tag">
+                    Go
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://marsleoguo.github.io/post/ios开发资料整理/">
+                  <h3 class="post-title">
+                    ios开发资料整理
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

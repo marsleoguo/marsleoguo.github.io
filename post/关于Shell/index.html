@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>关于Shell | 希言</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588476913693">
+<link rel="stylesheet" href="https://marsleoguo.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+Shell简介：
+定义：
+shell即是一种命令语言，又是一种程序设计语言。
+
+命令语言：他交互式地解释和执行用户输入的命令；
+程序设计语言：他定义了各种变量和参数，并提供了血多在高级语言中才具有的控制结构，包括循环和分支。
+
+
+两种执行..." />
+    <meta name="keywords" content="centos" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://marsleoguo.github.io">
+        <img src="https://marsleoguo.github.io/images/avatar.png?v=1588476913693" class="site-logo">
+        <h1 class="site-title">希言</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://marsleoguo.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">关于Shell</h2>
+            <div class="post-date">2017-07-21</div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<h4 id="shell简介">Shell简介：</h4>
+<h5 id="定义">定义：</h5>
+<p>shell即是一种命令语言，又是一种程序设计语言。</p>
+<ul>
+<li>命令语言：他交互式地解释和执行用户输入的命令；</li>
+<li>程序设计语言：他定义了各种变量和参数，并提供了血多在高级语言中才具有的控制结构，包括循环和分支。</li>
+</ul>
+<!-- more -->
+<h5 id="两种执行命令的方式">两种执行命令的方式:</h5>
+<ul>
+<li><strong>交互式(<code>Interactive</code>):</strong> 用户输入一条命令，<code>shell</code>就解释一条。</li>
+<li><strong>批处理（<code>Batch</code>）：</strong> 用户事先写一个<code>Shell</code>脚本，其中有很多命令，让shell一次把这些命令执行完，而不是一条一条的敲命令。</li>
+</ul>
+<hr>
+<h4 id="几种常见的shell">几种常见的<code>Shell</code></h4>
+<p>Unix、Linx上常见的Shell脚本解释器有bash、sh、csh、ksh等，习惯上把他们称作一种Shell。我们常说有几种Shell,其中说的是Shell脚本解释器。</p>
+<h5 id="bash">bash</h5>
+<p>bash是Linux标准默认的shell</p>
+<h5 id="第一个shell脚本">第一个<code>Shell</code>脚本</h5>
+<p><strong>例1：</strong> 打开终端在root下建立一个shell脚本：</p>
+<p>1.vim /root/test.sh</p>
+<p>2.在test下输入：</p>
+<pre><code>#!/bin/bash
+echo &quot;Hello World&quot;
+</code></pre>
+<p>3.给脚本授权：<code>chmod + x /root/test.sh</code></p>
+<p>4.执行脚本：./test.sh</p>
+<blockquote>
+<p><code>#!</code>是一个约定的标记，它告诉脚本需要什么Shell解释器来解决。</p>
+</blockquote>
+<p><strong>注意：</strong> 一定要写成<code>./test.sh</code>不要写成<code>test.sh</code>,如果写成后者运行时会到<code>Path</code>路径下去找。<br>
+<strong>例2：</strong> 下面的脚本使用<strong>read</strong>命令从 <strong>stdin（标准输入）</strong> 获取输入并赋值给PERSON变量，最后在**stdout（标准输出）**输出：</p>
+<pre><code>#!/bin/bash
+echo &quot;你的名字是：&quot;
+read PERSON
+echo &quot;Hello,$PERSON&quot;
+</code></pre>
+<pre><code>结果：
+你的名字：
+郭仕帅
+Hello,郭仕帅
+</code></pre>
+<hr>
+<h4 id="变量">变量：</h4>
+<h5 id="定义变量">定义变量</h5>
+<p>1.定义变量时，变量名不加 <strong>$</strong> 符，如：</p>
+<pre><code>name=&quot;三德子&quot;
+age=12
+</code></pre>
+<p>2.命名规则：数字、字母、下划线，开头必须是字母。</p>
+<p>3.变量名与<strong>等号（=）</strong> 之间不能有空格。</p>
+<h5 id="使用变量">使用变量</h5>
+<p>使用一个变量只要在变量前加<strong>美元符（$）</strong> 即可，如：</p>
+<pre><code>name=&quot;三德子&quot;
+each $name
+each ${name}
+</code></pre>
+<blockquote>
+<p>变量名外的花括号是可选的，加不加都行，加花括号是为了识别变量的边界，比如下面情况：</p>
+</blockquote>
+<pre><code>for skill in java html shell php
+do
+    echo &quot;${skill}说：我是世界上最好的语言！&quot;
+done
+</code></pre>
+<pre><code>结果：
+java说：我是世界上最好的语言！
+html说：我是世界上最好的语言！
+shell说：我是世界上最好的语言！
+php说：我是世界上最好的语言！
+</code></pre>
+<blockquote>
+<p>建议所有变量加花括号</p>
+</blockquote>
+<h5 id="重新定义变量">重新定义变量</h5>
+<p>已定义的变量可以重新定义：后者覆盖前者。</p>
+<pre><code>name=&quot;三德子&quot;
+echo ${name}
+name=&quot;法印&quot;
+echo ${name}
+</code></pre>
+<pre><code>结果：
+三德子
+法印
+</code></pre>
+<h5 id="只读变量-readonly">只读变量-<strong>readonly</strong></h5>
+<p>使用<strong>readonly</strong>定义的变量时不可以修改的。</p>
+<pre><code>readonly name=&quot;三德子&quot;
+echo $name
+或者
+name=&quot;三德子&quot;
+readonly name
+echo $name
+</code></pre>
+<h5 id="删除变量-unset">删除变量-<strong>unset</strong></h5>
+<p>使用<strong>unset</strong>可以删除变量。除只读变量外。</p>
+<pre><code>name=&quot;三德子&quot;
+unset name
+echo $name
+</code></pre>
+<blockquote>
+<p>输出结果什么也没有。</p>
+</blockquote>
+<h5 id="变量类型">变量类型</h5>
+<p>运行shell时，会同时存在三种变量：</p>
+<ol>
+<li>局部变量</li>
+</ol>
+<p>局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量。<br>
+2) 环境变量</p>
+<p>所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。<br>
+3) shell变量</p>
+<p>shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行</p>
+<hr>
+<h4 id="特殊变量">特殊变量</h4>
+<p>变量名只能包含数字、字母和下划线，因为某些包含其他字符的变量有特殊含义，这样的变量被称为特殊变量。<br>
+例如：查看当前shell的进程：</p>
+<pre><code>echo $$
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0</td>
+<td>当前脚本的文件名</td>
+</tr>
+<tr>
+<td>$n</td>
+<td>传递给脚本或者函数的参数，第一个参数是$1</td>
+</tr>
+<tr>
+<td>$#</td>
+<td>传递给脚本或函数的参数个数。</td>
+</tr>
+<tr>
+<td>$*</td>
+<td>传递给脚本或函数的所有参数。</td>
+</tr>
+<tr>
+<td>$@</td>
+<td>传递给脚本或函数的所有参数。</td>
+</tr>
+<tr>
+<td>$?</td>
+<td>上一个命令退出的状态，或者函数的返回值。一般成功返回0，失败返回1</td>
+</tr>
+<tr>
+<td>$$</td>
+<td>查看当前shell的进程id</td>
+</tr>
+</tbody>
+</table>
+<h5 id="命令行参数">命令行参数</h5>
+<pre><code>echo &quot;文件的名称：${0}&quot;
+echo &quot;第一个参数：${1}&quot;
+echo &quot;所有参数：${@}&quot;
+echo &quot;所有参数：${*}&quot;
+echo &quot;参数的个数：${#}&quot;
+</code></pre>
+<p>运行：</p>
+<pre><code>./test.sh 三德子  法印
+</code></pre>
+<p>结果：</p>
+<pre><code>第一个参数：三德子
+所有参数：三德子 法印
+所有参数：三德子 法印
+参数的个数：2
+</code></pre>
+<hr>
+<h4 id="shell-替换-shell变量替换-shell命令替换-转义字符">Shell 替换-Shell变量替换、Shell命令替换、转义字符</h4>
+<p>如果表达式中包含特殊字符，Shell将会进行替换。例如：在双引号中使用变量是一种替换，转义字符也是一种替换。</p>
+<pre><code>#!/bin/bash
+a=10
+echo -e &quot;你猜他的年龄是多少岁？答案：$a \n&quot;
+</code></pre>
+<p>结果：</p>
+<pre><code>你猜他的年龄是多少岁？答案：10
+
+
+</code></pre>
+<blockquote>
+<p>如果没有<code>-e</code> <code>\n</code>就原样输出。<code>你猜他的年龄是多少岁？答案：10 \n</code></p>
+</blockquote>
+<p>下面的转移字符都可以用在<code>each</code>中：</p>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\\</td>
+<td>反斜杠</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>警报，响铃</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格(删除键)</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页（FF）,将当前位置移动到下页开头</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符</td>
+</tr>
+</tbody>
+</table>
+<p>可以使用echo命令的-E选项禁止转义，默认也是不转义的。</p>
+<h5 id="命令替换">命令替换：</h5>
+<p>命令替换是指Shell可以先执行命令，将输出结果暂时保存。在适当的地方输出。<br>
+命令替换的语法：</p>
+<pre><code>`command`
+</code></pre>
+<p>下面的例子：将命令执行结果放在变量中</p>
+<p>1.当前日期是：</p>
+<pre><code>DATE=`date`
+echo &quot;日期是：$DATE&quot;
+</code></pre>
+<p>结果：</p>
+<pre><code>日期是2017年 04月 16日 星期日 23:15:34 PDT
+</code></pre>
+<p>2.系统当前登录的用户数是</p>
+<pre><code>USERS=`who | wc -l`
+echo &quot;系统当前的登录数为：${USERS}&quot;
+</code></pre>
+<p>结果：</p>
+<pre><code>系统当前的登录数为：3
+</code></pre>
+<h5 id="变量替换">变量替换</h5>
+<p>变量替换可以根据变量的状态（是否为空、是否定义等）来改变他的值</p>
+<table>
+<thead>
+<tr>
+<th>形式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${var}</td>
+<td>变量本来的值</td>
+</tr>
+<tr>
+<td>${var:-word}</td>
+<td>如果var为空或者被删除（unset），那么返回word，但不改变var的值</td>
+</tr>
+<tr>
+<td>${var:=word}</td>
+<td>如果var为空或者被删除（unset），那么返回word，同时改变var的值</td>
+</tr>
+<tr>
+<td>${var:?message}</td>
+<td>报错</td>
+</tr>
+<tr>
+<td>${var:+word}</td>
+<td>如果变量 var 被定义，那么返回 word，但不改变 var 的值。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="shell运算符shell算数运算符-关系运算符-布尔运算符-字符串运算符-文件测试运算符">Shell运算符：Shell算数运算符、关系运算符、布尔运算符、字符串运算符、文件测试运算符</h4>
+<p>原生的bash不支持简答的数学运算，但可以通过其他命令来解释，最常用的是expr;</p>
+<p>例如：计算两个数相加</p>
+<pre><code>#!/bin/bash
+val=`expr 2 + 2`
+echo ${val}
+</code></pre>
+<p>结果：</p>
+<pre><code>4
+</code></pre>
+<p>注意：</p>
+<ul>
+<li>表达式和运算符之间一定要有空格，例如：2+2是不对的必须写成2 + 2</li>
+<li>表达式一定要被``包含，跟makedown一样。</li>
+</ul>
+<p>算数运算符：<br>
+注意：</p>
+<ul>
+<li>乘号：前边一定要加反斜杠（\*）</li>
+<li>条件表达式：要放在方括号间，并且要有空格：[ $a == $b ] 比较相等。</li>
+</ul>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://marsleoguo.github.io/tag/k78BlDHfQ/" class="tag">
+                    centos
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://marsleoguo.github.io/post/centos相关/">
+                  <h3 class="post-title">
+                    centos相关
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

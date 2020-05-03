@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>ElasticSearch监控工具 - cerebro | 希言</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588476913693">
+<link rel="stylesheet" href="https://marsleoguo.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+ElasticSearch监控工具 - cerebro
+
+最近ElasticSearch使用中出现好多异常情况，一直都是命令行直接排查问题，不够直观。网络上大部分都推荐Kopf，Bigdesk，但是都已经是过时的工具，多年都没有更新了。
+..." />
+    <meta name="keywords" content="ES" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://marsleoguo.github.io">
+        <img src="https://marsleoguo.github.io/images/avatar.png?v=1588476913693" class="site-logo">
+        <h1 class="site-title">希言</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://marsleoguo.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">ElasticSearch监控工具 - cerebro</h2>
+            <div class="post-date">2019-03-31</div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<h1 id="elasticsearch监控工具-cerebro">ElasticSearch监控工具 - cerebro</h1>
+<blockquote>
+<p>最近ElasticSearch使用中出现好多异常情况，一直都是命令行直接排查问题，不够直观。网络上大部分都推荐<code>Kopf</code>，<code>Bigdesk</code>，但是都已经是过时的工具，多年都没有更新了。</p>
+</blockquote>
+<p><em>ps: kopf的github首页就表明该项目不再维护，推荐使用cerebro；bigdesk也只支持ElasticSearch1.3及以下版本</em></p>
+<p>而且<code>cerebro</code>的使用特别简单，页面还很漂亮！</p>
+<figure data-type="image" tabindex="1"><img src="https://upload-images.jianshu.io/upload_images/7081994-56c0d7fbce479a05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img" loading="lazy"></figure>
+<p>监控页面</p>
+<h2 id="下载解压">下载解压</h2>
+<p><a href="https://github.com/lmenezes/cerebro/releases">https://github.com/lmenezes/cerebro/releases</a></p>
+<pre><code>wget https://github.com/lmenezes/cerebro/releases/download/v0.8.1/cerebro-0.8.1.tgz
+tar xzf cerebro-0.8.1.tgz
+</code></pre>
+<h2 id="启动">启动</h2>
+<pre><code>cerebro-0.8.1/bin/cerebro
+[info] play.api.Play - Application started (Prod)
+[info] p.c.s.AkkaHttpServer - Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+</code></pre>
+<ul>
+<li>指定端口</li>
+</ul>
+<pre><code>bin/cerebro -Dhttp.port=8080
+</code></pre>
+<ul>
+<li>配置服务器</li>
+</ul>
+<p>非必须：如果经常使用的话，可以先在<code>conf/application.conf</code>中配置好ElasticSearch服务器地址</p>
+<pre><code>hosts = [
+  {
+    host = &quot;http://localhost:9200&quot;
+    name = &quot;Some Cluster&quot;
+  },
+  # Example of host with authentication
+  #{
+  #  host = &quot;http://some-authenticated-host:9200&quot;
+  #  name = &quot;Secured Cluster&quot;
+  #  auth = {
+  #    username = &quot;username&quot;
+  #    password = &quot;secret-password&quot;
+  #  }
+  #}
+]
+</code></pre>
+<h2 id="使用">使用</h2>
+<ul>
+<li>浏览器打开连接<a href="http://192.168.58.101:9000/">http://192.168.58.101:9000</a></li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://upload-images.jianshu.io/upload_images/7081994-efb0af233f90c9c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/516/format/webp" alt="img" loading="lazy"></figure>
+<p>预配置好的Some Cluster</p>
+<p>连接后可以显示集群信息：</p>
+<ul>
+<li>
+<p>概要信息</p>
+<figure data-type="image" tabindex="3"><img src="https://upload-images.jianshu.io/upload_images/7081994-56c0d7fbce479a05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img" loading="lazy"></figure>
+<p>监控页面</p>
+</li>
+<li>
+<p>节点信息</p>
+<figure data-type="image" tabindex="4"><img src="https://upload-images.jianshu.io/upload_images/7081994-f57e890e3b90c00e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img" loading="lazy"></figure>
+<p>节点信息</p>
+</li>
+<li>
+<p>Rest接口</p>
+<figure data-type="image" tabindex="5"><img src="https://upload-images.jianshu.io/upload_images/7081994-e8c1848716513154.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img" loading="lazy"></figure>
+<p>Rest接口</p>
+</li>
+<li>
+<p>其他功能</p>
+<figure data-type="image" tabindex="6"><img src="https://upload-images.jianshu.io/upload_images/7081994-ec5b2807bda52075.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img" loading="lazy"></figure>
+<p>其他状态查询</p>
+</li>
+</ul>
+<h2 id="elasticsearch系列">ElasticSearch系列</h2>
+<ul>
+<li><a href="https://www.jianshu.com/p/c6708ea88710">ElasticSearch常用命令</a></li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://github.com/lmenezes/cerebro/releases">https://github.com/lmenezes/cerebro/releases</a></li>
+<li><a href="https://github.com/lmenezes/elasticsearch-kopf">https://github.com/lmenezes/elasticsearch-kopf</a></li>
+<li><a href="https://github.com/lukas-vlcek/bigdesk">https://github.com/lukas-vlcek/bigdesk</a></li>
+</ul>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://marsleoguo.github.io/tag/8VDp3XEaqs/" class="tag">
+                    ES
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://marsleoguo.github.io/post/iOS-开发工具集合/">
+                  <h3 class="post-title">
+                    iOS 开发工具集合
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>centos相关 | 希言</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588476913693">
+<link rel="stylesheet" href="https://marsleoguo.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+查看ip地址
+ifconfig
+
+修改centos语言为中文
+
+第一步: vim /etc/profile
+第二步：在文件的末尾添加export LANG=zh_CN.GB2312
+第三步：wq保存。
+第四步：刷新profile文件。so..." />
+    <meta name="keywords" content="centos" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://marsleoguo.github.io">
+        <img src="https://marsleoguo.github.io/images/avatar.png?v=1588476913693" class="site-logo">
+        <h1 class="site-title">希言</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://marsleoguo.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">centos相关</h2>
+            <div class="post-date">2017-07-21</div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<h4 id="查看ip地址">查看<code>ip</code>地址</h4>
+<pre><code>ifconfig
+</code></pre>
+<h4 id="修改centos语言为中文">修改<code>centos</code>语言为中文</h4>
+<ul>
+<li>第一步: <code>vim /etc/profile</code></li>
+<li>第二步：在文件的末尾添加<code>export LANG=zh_CN.GB2312</code></li>
+<li>第三步：wq保存。</li>
+<li>第四步：刷新<code>profile</code>文件。<code>source /etc/profile</code></li>
+</ul>
+<!-- more -->
+<h4 id="jdk安装"><code>JDK</code>安装</h4>
+<ul>
+<li>
+<p>第一步：在<code>/usr/local/</code>下创建文件夹<code>soft resource</code>。代码如下：</p>
+<pre><code>1.cd /usr/local/ --进入local文件夹下
+
+2.mkdir soft resource --创建文件夹
+</code></pre>
+</li>
+<li>
+<p>第二步：通过xftp将<code>JDK</code>安装文件放入到<code>/usr/local/src/soft resource/</code>下</p>
+</li>
+<li>
+<p>第三步：解压<code>JDK</code>gz文件</p>
+<pre><code>1.cd /usr/local/src/soft resource/ -- 进入soft resource文件夹
+2.tar -zvxf /usr/local/src/jdk-7u71-linux-x64.tar.gz -- 解压jdk的安装文件
+</code></pre>
+</li>
+<li>
+<p>第四步：在<code>/usr/</code> 下创建<code>java</code>文件夹</p>
+<pre><code>mkdir /usr/java
+</code></pre>
+</li>
+<li>
+<p>第五步：剪切<code>jdk</code>解压后的文件到<code>java</code>文件夹下并且命名为<code>java</code></p>
+<pre><code>mv jdk1.7.0_71 /usr/java/jdk;
+</code></pre>
+</li>
+<li>
+<p>第六步：配置jdk的环境变量</p>
+<pre><code>1.vim /etc/profile
+2.在文件的末尾添加：
+export JAVA_HOME=/usr/java/jdk
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>注意：不要忘记<code>PATH</code>后边的<code>:$PATH</code>那个代表系统变量的<code>path</code></p>
+</blockquote>
+<ul>
+<li>第七步：让修改生效: 执行<code>source /etc/profile</code></li>
+</ul>
+<h4 id="mysql安装"><code>MySql</code>安装</h4>
+<ul>
+<li>
+<ol>
+<li>在<code>/usr/local/</code>下创建文件夹<code>soft resource</code>。代码如下：<pre><code>1.cd /usr/local/ --进入local文件夹下
+
+2.mkdir soft resource --创建文件夹
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>通过xftp将<code>MySql</code>安装文件放入到<code>/usr/local/src/soft resource/</code>下</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>解压<code>MySql</code>gz文件<pre><code>1.cd /usr/local/src/soft resource/ -- 进入soft resource文件夹
+2.tar -zvxf mysql-5.6.34-linux-glibc2.5-x86_64.tar.gz -- 解压MySql的安装文件
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>剪切<code>MySql</code>解压后的文件到<code>mysql</code>文件夹下 并且配置Path路径<pre><code>1.mv mysql-5.6.34-linux-glibc2.5-x86_64 /usr/local/mysql/
+2.vim /etc/profile
+3.添加export MYSQL_HOME=/usr/local/mysql
+4.path路径添加home路径：export PATH=:$MYSQL_HOME/bin
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>创建一个新的工作组</li>
+</ol>
+<pre><code>groupadd mysql;
+</code></pre>
+</li>
+<li>
+<ol start="6">
+<li>创建系统账户并将它指向给新创建的工作组</li>
+</ol>
+<pre><code>useradd -r -g mysql mysql;
+</code></pre>
+</li>
+<li>
+<ol start="7">
+<li>进入<code>mysql</code>文件夹</li>
+</ol>
+<pre><code>cd /usr/local/mysql
+</code></pre>
+</li>
+<li>
+<ol start="8">
+<li>修改当前文件夹的属组为<code>mysql</code></li>
+</ol>
+<pre><code>chown -R mysql:mysql ./;
+</code></pre>
+</li>
+<li>
+<ol start="9">
+<li>执行以下语句：</li>
+</ol>
+<pre><code>./scripts/mysql_install_db --user=mysql;
+</code></pre>
+</li>
+<li>
+<ol start="10">
+<li>修改当前文件夹的属组为<code>root</code></li>
+</ol>
+<pre><code>chown -R root:root ./;
+</code></pre>
+</li>
+<li>
+<ol start="11">
+<li>修改data文件夹的属组为'mysql</li>
+</ol>
+<pre><code>chown -R mysql:mysql ./data;
+</code></pre>
+</li>
+<li>
+<ol start="12">
+<li>将<code>mysql</code>的服务放入到系统服务文件夹<code>（init.d）</code></li>
+</ol>
+</li>
+</ul>
+<pre><code>\cp support-files/mysql.server /etc/init.d/mysql;
+</code></pre>
+<ul>
+<li>
+<ol start="13">
+<li>启动<code>mysql</code>服务</li>
+</ol>
+<pre><code>service mysql start;
+
+</code></pre>
+</li>
+<li>
+<ol start="14">
+<li>修改服务文件夹下 mysql文件的权限</li>
+</ol>
+<pre><code>chmod +x /etc/init.d/mysql;
+</code></pre>
+</li>
+<li>
+<ol start="15">
+<li>创建符号链接</li>
+</ol>
+</li>
+</ul>
+<pre><code>\ln -s /usr/local/mysql/bin/mysql /usr/bin;
+</code></pre>
+<ul>
+<li>
+<ol start="16">
+<li>登录<code>mysql</code>设置<code>root</code>密码</li>
+</ol>
+</li>
+</ul>
+<pre><code>1.mysql -h 127.0.0.1 -u root -p
+2.回车
+3.password提示，然后再回车。
+4.设置密码：mysql&gt; set password for root@localhost = password('123');
+</code></pre>
+<h4 id="tomcat安装"><code>tomcat</code>安装</h4>
+<ul>
+<li>
+<ol>
+<li>在<code>/usr/local/</code>下创建文件夹<code>soft resource</code>。代码如下：<pre><code>1.cd /usr/local/ --进入local文件夹下
+
+2.mkdir soft resource --创建文件夹
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>通过xftp将<code>MySql</code>安装文件放入到<code>/usr/local/src/soft resource/</code>下</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>解压tomcat文件</li>
+</ol>
+<pre><code>tar -zvxf /usr/local/src/apache-tomcat-7.0.69.tar.gz;
+</code></pre>
+</li>
+<li>
+<ol start="4">
+<li>剪切解压缩后的文件到<code>/user/local/tomcat</code>下</li>
+</ol>
+<pre><code>mv /usr/local/src/apache-tomcat-7.0.69 /usr/local/tomcat;
+</code></pre>
+</li>
+<li>
+<ol start="5">
+<li>设置<code>tomcat</code>的运行内存等：</li>
+</ol>
+<pre><code>1.vim /usr/local/tomcat/bin/catalina.sh
+2.在第一行添加:JAVA_OPTS='-Xms512m -Xmx2048m -XX:PermSize=256M -XX:MaxNewSize=512m -XX:MaxPermSize=2048m'
+3.chmod +x /usr/local/tomcat/bin/catalina.sh;
+</code></pre>
+</li>
+<li>
+<ol start="6">
+<li>设置<code>tomcat</code>的字符集：</li>
+</ol>
+<pre><code>1.vim /usr/local/tomcat/conf/server.xml
+2.在端口号为&quot; &lt;Connector port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;&quot;处添加：URIEncoding=&quot;utf-8&quot;
+</code></pre>
+</li>
+<li>
+<ol start="7">
+<li>设置<code>/etc/profile</code>文件</li>
+</ol>
+</li>
+</ul>
+<pre><code>1.export CATALINA_HOME=/usr/local/tomcat
+2.export PATH=$CATALINA_HOME/bin
+3.export CLASSPATH=$CATALINA_HOME/lib/servlet-api.jar
+</code></pre>
+<h4 id="关闭防火墙">关闭防火墙</h4>
+<pre><code>service iptables stop;-- 停止防火墙
+chkconfig iptables off;-- 开机启动的时候停止防火墙
+</code></pre>
+<h4 id="多端口的问题">多端口的问题</h4>
+<h4 id="出现command-not-found的解决办法">出现<code>command not found</code>的解决办法。</h4>
+<p>执行以下代码：</p>
+<pre><code>export
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+</code></pre>
+<h4 id="创建一个新的工作组-_groupadd">创建一个新的工作组 _<code>groupadd</code></h4>
+<pre><code>groupadd mysql;
+</code></pre>
+<h4 id="创建一个新的系统用户_useradd">创建一个新的系统用户_<code>useradd</code></h4>
+<pre><code>useradd -r -g mysql mysql;
+
+</code></pre>
+<p><code>-r</code>:建立系统帐号；</p>
+<p><code>-g&lt;群组&gt;</code>：指定用户所属的群组；</p>
+<h4 id="chown用法">chown用法</h4>
+<p><strong>用途：</strong> 用来更改某个目录或文件的用户名和用户组的</p>
+<p><strong>用法：</strong> <code>chown 用户名:组名 文件路径</code>（可以是就对路径也可以是相对路径）</p>
+<p><strong>例如：</strong></p>
+<pre><code>chown root:root /tmp/tmp1
+</code></pre>
+<blockquote>
+<p>就是把tmp下的tmp1的用户名和用户组改成root和root（只修改了tmp1的属组）.</p>
+</blockquote>
+<h4 id="centos-定时任务">centos 定时任务</h4>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>service crond start</code></td>
+<td>启动服务</td>
+</tr>
+<tr>
+<td><code>service crond stop</code></td>
+<td>关闭服务</td>
+</tr>
+<tr>
+<td><code>service crond restart</code></td>
+<td>重启服务</td>
+</tr>
+<tr>
+<td><code>service crond reload</code></td>
+<td>重新载入配置</td>
+</tr>
+<tr>
+<td><code>crontab -l</code></td>
+<td>查看定时任务</td>
+</tr>
+<tr>
+<td><code>crontab -e</code></td>
+<td>编辑定时任务</td>
+</tr>
+</tbody>
+</table>
+<p><strong>例子：</strong></p>
+<pre><code class="language-shell">56 22 3 jul * rm -rf /root/test
+</code></pre>
+<h5 id="cron文件语法">cron文件语法:</h5>
+<table>
+<thead>
+<tr>
+<th>分</th>
+<th>小时</th>
+<th>日</th>
+<th>月</th>
+<th>星期</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-59</td>
+<td>0-23</td>
+<td>1-31</td>
+<td>1-12</td>
+<td>0-6</td>
+<td>sh脚本</td>
+</tr>
+</tbody>
+</table>
+<h5 id="特殊字符">特殊字符</h5>
+<ul>
+<li><code>*</code>代表取值范围内的数字</li>
+<li><code>/</code>代表”每”</li>
+<li><code>-</code>代表从某个数字到某个数字</li>
+<li><code>,</code>分开几个离散的数字</li>
+</ul>
+<p>例如： <code>*/15 * * * * sh /root/test1.sh</code>             指定每天的 5:30 执行ls命令</p>
+<h4 id="目录的绑定与解除绑定">目录的绑定与解除绑定</h4>
+<p><strong>绑定：</strong></p>
+<pre><code>mount --bind 老目录  新目录
+</code></pre>
+<p>解除绑定：</p>
+<pre><code>mount --move 老目录 新目录
+</code></pre>
+<blockquote>
+<p>解绑是绑定的一个反过程所以要调过来。</p>
+</blockquote>
+<h4 id="设置目录永久关联">设置目录永久关联</h4>
+<pre><code>sed -i &quot;/proc/a\\\n/home/mnt/resource    /usr/local/tomcat/webapps/core/resource   none   rw,bind  0 0&quot; /etc/fstab;
+</code></pre>
+<h4 id="设置开机启动">设置开机启动</h4>
+<pre><code>vim /etc/rc.d/rc.local
+</code></pre>
+<blockquote>
+<p>想要启动什么在这个文件里添加就行。</p>
+</blockquote>
+<h4 id="ftp的安装">ftp的安装</h4>
+<h5 id="安装">安装</h5>
+<h5 id="配置自启动">配置自启动</h5>
+<h5 id="查看管理ftp服务">查看管理ftp服务</h5>
+<h5 id="修改配置文件">修改配置文件</h5>
+<h5 id="常见错误处理">常见错误处理</h5>
+<h4 id="mysql账户授权为可远程访问用户">mysql账户授权为可远程访问用户</h4>
+<ol>
+<li>使用命令行登陆<code>mysql</code>:</li>
+</ol>
+<pre><code>mysql -uroot -p'123456'
+</code></pre>
+<ol start="2">
+<li>选择<code>mysql</code>数据库实例。</li>
+</ol>
+<pre><code>use mysql;
+</code></pre>
+<ol start="3">
+<li>给<code>root</code>用户授权可远程访问权限。</li>
+</ol>
+<pre><code>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+</code></pre>
+<ol start="4">
+<li>刷新权限。</li>
+</ol>
+<pre><code>FLUSH PRIVILEGES;
+</code></pre>
+<ol start="5">
+<li>利用数据库DBMS尝试一下是否成功。</li>
+<li>退出数据库。</li>
+</ol>
+<pre><code>quit;
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://marsleoguo.github.io/tag/k78BlDHfQ/" class="tag">
+                    centos
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://marsleoguo.github.io/post/辽宁大学一日游/">
+                  <h3 class="post-title">
+                    辽宁大学一日游
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

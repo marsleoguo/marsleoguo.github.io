@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>atom 手动安装插件包 | 希言</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588476913693">
+<link rel="stylesheet" href="https://marsleoguo.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+atom 手动安装插件包
+
+
+在这里搜索需要的 Package
+
+
+点击report获取git链接地址，如下图：
+
+
+
+进入home文件夹下atom的packages文件夹
+
+
+cd ~/.atom/packages
+
+
+使用git下载插..." />
+    <meta name="keywords" content="atom" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://marsleoguo.github.io">
+        <img src="https://marsleoguo.github.io/images/avatar.png?v=1588476913693" class="site-logo">
+        <h1 class="site-title">希言</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://marsleoguo.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">atom 手动安装插件包</h2>
+            <div class="post-date">2017-07-19</div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<h1 id="atom-手动安装插件包">atom 手动安装插件包</h1>
+<ol>
+<li>
+<p><a href="https://atom.io/packages">在这里搜索需要的 Package</a></p>
+</li>
+<li>
+<p>点击report获取git链接地址，如下图：<br>
+<img src="https://raw.githubusercontent.com/marsleoguo/bed/master/markdown-img-paste-20170910222902729.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>进入home文件夹下atom的packages文件夹</p>
+</li>
+</ol>
+<pre><code>cd ~/.atom/packages
+</code></pre>
+<ol start="4">
+<li>使用git下载插件：<code>git clone &lt;你想安装的 Package 的仓库链接&gt;</code></li>
+</ol>
+<pre><code>git clone https://atom.io/packages/emmet
+</code></pre>
+<ol start="5">
+<li>进入插件的文件夹,如下：</li>
+</ol>
+<pre><code>cd &lt;Package 路径&gt; # cd emmet-atom
+</code></pre>
+<ol start="6">
+<li>安装插件：</li>
+</ol>
+<pre><code>npm install
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://marsleoguo.github.io/tag/huCCBGI7r1r/" class="tag">
+                    atom
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://marsleoguo.github.io/post/dpkg的使用说明/">
+                  <h3 class="post-title">
+                    dpkg的使用方法
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

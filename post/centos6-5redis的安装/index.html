@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>centos6.5redis的安装 | 希言</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588476913693">
+<link rel="stylesheet" href="https://marsleoguo.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+本文详细介绍Redis单机单实例安装与配置，服务及开机自启动。如有不对的地方，欢迎大家拍砖o(∩_∩)o
+（以下配置基于CentOS release 6.5 Final， redis版本3.0.2 [redis版本号中间位是偶数的是稳定版..." />
+    <meta name="keywords" content="centos" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://marsleoguo.github.io">
+        <img src="https://marsleoguo.github.io/images/avatar.png?v=1588476913693" class="site-logo">
+        <h1 class="site-title">希言</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://marsleoguo.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">centos6.5redis的安装</h2>
+            <div class="post-date">2017-08-03</div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<p>本文详细介绍<strong>Redis</strong>单机单实例安装与配置，服务及开机自启动。如有不对的地方，欢迎大家拍砖o(∩_∩)o<br>
+（以下配置基于CentOS release 6.5 Final， redis版本3.0.2 [redis版本号中间位是偶数的是稳定版，奇数的为非稳定版]）</p>
+<h2 id="一安装redis">一．安装redis</h2>
+<h3 id="1-下载redis安装包">1. 下载redis安装包</h3>
+<p>可去官网http://redis.io ，也可通过wget命令，</p>
+<pre><code>wget http://download.redis.io/redis-stable.tar.gz
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/marsleoguo/bed/master/markdown-img-paste-20170803114957565.png" alt="" loading="lazy"></figure>
+<h3 id="2-解压">2. 解压</h3>
+<pre><code>tar –zxvf redis-stable.tar.gz
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/marsleoguo/bed/master/markdown-img-paste-20170803115044430.png" alt="" loading="lazy"></figure>
+<h3 id="3-编译-安装">3. 编译、安装</h3>
+<pre><code>cd redis-stable
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/marsleoguo/bed/master/markdown-img-paste-20170803115204151.png" alt="" loading="lazy"></figure>
+<pre><code>make
+</code></pre>
+<ul>
+<li>如果提示gcc command不识别，请自行安装gcc;</li>
+<li>如果提示couldn’t execute tcl : no such file or dicrectory，请自行安装tcl;</li>
+<li>如果提示</li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/marsleoguo/bed/master/markdown-img-paste-20170803115320716.png" alt="" loading="lazy"></figure>
+<p>请执行make distclean，然后再make</p>
+<figure data-type="image" tabindex="5"><img src="https://raw.githubusercontent.com/marsleoguo/bed/master/markdown-img-paste-2017080311535709.png" alt="" loading="lazy"></figure>
+<p>Make成功之后，会在src目录下多出一些文件，如下</p>
+<figure data-type="image" tabindex="6"><img src="https://raw.githubusercontent.com/marsleoguo/bed/master/markdown-img-paste-2017080311541797.png" alt="" loading="lazy"></figure>
+<p>可手动拷贝redis-server、redis-cli、redis-check-aof、redis-check-dump等至/usr/local/bin目录下，也可执行make install，此处执行make</p>
+<p>install</p>
+<figure data-type="image" tabindex="7"><img src="https://raw.githubusercontent.com/marsleoguo/bed/master/markdown-img-paste-20170803115443212.png" alt="" loading="lazy"></figure>
+<p>可查看，/usr/local/bin下已有这些文件。</p>
+<blockquote>
+<p>注意：若此时执行redis-server –v (查看版本命令)，若提示redis-server command not found，则需要将/usr/local/bin目录加到环境变量，如何添加，此处不做详细介绍，可查看修改/etc/profile，(查看环境变量命令：echo $PATH)正常如下<br>
+<img src="https://raw.githubusercontent.com/marsleoguo/bed/master/markdown-img-paste-20170803115537222.png" alt="" loading="lazy"></p>
+</blockquote>
+<p>至此，redis安装完成，接着配置。</p>
+<h2 id="二修改配置文件conf">二．修改配置文件.conf</h2>
+<ol>
+<li>创建配置文件目录，dump file 目录，进程pid目录，log目录等。配置文件一般放在/etc/下，创建redis目录</li>
+</ol>
+<pre><code>cd /etc/
+mkdir redis
+</code></pre>
+<p><code>ll</code> 查看创建的redis目录<br>
+~<br>
+dump file、进程pid、log目录等，一般放在/var/目录下，</p>
+<pre><code>cd /var/
+mkdir redis
+cd redis
+mkdir data log run
+</code></pre>
+<figure data-type="image" tabindex="8"><img src="https://raw.githubusercontent.com/marsleoguo/bed/master/markdown-img-paste-20170803120025702.png" alt="" loading="lazy"></figure>
+<p>至此，目录创建完毕</p>
+<ol start="2">
+<li>
+<p>修改配置文件，配置参数</p>
+<ul>
+<li>首先拷贝解压包下的redis.conf文件至/etc/redis<br>
+<img src="https://raw.githubusercontent.com/marsleoguo/bed/master/markdown-img-paste-20170803120141359.png" alt="" loading="lazy"></li>
+<li>查看/etc/redis/redis.conf</li>
+</ul>
+</li>
+</ol>
+<pre><code>cd /etc/redis/
+ll
+</code></pre>
+<figure data-type="image" tabindex="9"><img src="https://raw.githubusercontent.com/marsleoguo/bed/master/markdown-img-paste-20170803120229673.png" alt="" loading="lazy"></figure>
+<p>打开redis.conf文件，修改端口(默认6379)</p>
+<figure data-type="image" tabindex="10"><img src="https://raw.githubusercontent.com/marsleoguo/bed/master/markdown-img-paste-2017080312030655.png" alt="" loading="lazy"></figure>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://marsleoguo.github.io/tag/k78BlDHfQ/" class="tag">
+                    centos
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://marsleoguo.github.io/post/关于javaScript/">
+                  <h3 class="post-title">
+                    关于javaScript
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

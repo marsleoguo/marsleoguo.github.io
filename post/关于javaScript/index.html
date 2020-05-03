@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>关于javaScript | 希言</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588476913693">
+<link rel="stylesheet" href="https://marsleoguo.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+strict模式
+在strict模式下运行的代码，强制通过var声明变量，未使用var的则导致系统运行错误。
+
+启用strict模式的方法：在js代码的第一行写：'use srict';
+测试：
+
+'use strict';
+var a=..." />
+    <meta name="keywords" content="javaScript" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://marsleoguo.github.io">
+        <img src="https://marsleoguo.github.io/images/avatar.png?v=1588476913693" class="site-logo">
+        <h1 class="site-title">希言</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://marsleoguo.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">关于javaScript</h2>
+            <div class="post-date">2017-07-21</div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<h4 id="strict模式"><code>strict</code>模式</h4>
+<p>在strict模式下运行的代码，强制通过var声明变量，未使用var的则导致系统运行错误。</p>
+<ul>
+<li>启用strict模式的方法：在js代码的第一行写：<code>'use srict';</code></li>
+<li>测试：</li>
+</ul>
+<pre><code>'use strict';
+var a=&quot;111&quot;;
+alert(a);
+</code></pre>
+<blockquote>
+<p>如果报错说明浏览器支持。</p>
+</blockquote>
+<!-- more -->
+<hr>
+<h4 id="js浮点数的比较">js浮点数的比较</h4>
+<p>因为计算机无法精确表示无限循环小数，比较两份浮点数只能比较他们是否小于某个<strong>阈值</strong></p>
+<pre><code>console.log(Math.abs(1/3-(1-2/3))&lt;0.0000001);
+</code></pre>
+<blockquote>
+<p>运行结果是<code>true</code></p>
+</blockquote>
+<hr>
+<h4 id="比较运算符与">比较运算符<code>==</code>与<code>===</code></h4>
+<p><code>==</code> 他会转换数据类型在比较，很多时候，会得到非常诡异的结果</p>
+<p><code>===</code>不会自动转换数据类型，如果数据类型不一致，返回<code>false</code>,如果一致在比较。</p>
+<hr>
+<h4 id="比n牛x多了的符号多行字符串的的表示方法">比<code>\n</code>牛x多了的符号—多行字符串的的表示方法<code>``</code></h4>
+<p>由于多行字符串用<code>\n</code>写起了比较费劲，根据最新的ES6标准用 `xxxxx`</p>
+<ul>
+<li>例如：</li>
+</ul>
+<pre><code>console.log(`张三
+李四
+王麻子`);
+</code></pre>
+<blockquote>
+<p>输出结果：</p>
+</blockquote>
+<pre><code>张三
+李四
+王麻子
+</code></pre>
+<hr>
+<h4 id="字符串">字符串</h4>
+<h5 id="获取字符串某一个指定位置的字符">获取字符串某一个指定位置的字符</h5>
+<p>使用类似于<code>Array</code>的下标操作</p>
+<ul>
+<li>测试：</li>
+</ul>
+<pre><code>var s=&quot;hello world!&quot;;
+console.log(s[0]);
+</code></pre>
+<pre><code>结果：h
+</code></pre>
+<blockquote>
+<p>超出范围的索引不会报错，返回的是<code>undefined</code></p>
+</blockquote>
+<blockquote>
+<p>需要特别注意的是字符串是不可变的，如果对字符串的某个索引赋值，不会有任何错误，但是也没有任何效果。</p>
+</blockquote>
+<pre><code>var s=&quot;hello world&quot;;
+s[0]='H';
+console.log(s);
+</code></pre>
+<pre><code>hello world
+</code></pre>
+<hr>
+<h5 id="字符串变大写-touppercase">字符串变大写-toUpperCase</h5>
+<pre><code>var s=&quot;hello world&quot;;
+console.log(s.toUpperCase());
+</code></pre>
+<pre><code>结果：HELLO WORLD
+</code></pre>
+<hr>
+<h5 id="字符串变小写-tolowercase">字符串变小写-toLowerCase</h5>
+<pre><code>var s=&quot;HELLO WORLD&quot;;
+console.log(s.toLowerCase());
+</code></pre>
+<pre><code>结果：hello world
+</code></pre>
+<h5 id="指定字符出现的位置-indexof">指定字符出现的位置-indexOf</h5>
+<pre><code>var s=&quot;hello world&quot;;
+console.log(s.indexOf(&quot;l&quot;));
+</code></pre>
+<pre><code>结果:2
+</code></pre>
+<blockquote>
+<p>如果指定字符在字符串中出现的次数不只一次。则返回第一次出现的位置。</p>
+</blockquote>
+<pre><code>var s=&quot;hello world&quot;;
+console.log(s.indexOf(&quot;W&quot;));
+</code></pre>
+<pre><code>结果：-1
+</code></pre>
+<blockquote>
+<p>如果没有出现则返回<code>-1</code></p>
+</blockquote>
+<h4 id="字符串截取-substring">字符串截取 substring()</h4>
+<pre><code>var s='hello world';
+console.log(s.substring(0,5));
+</code></pre>
+<pre><code>结果：hello
+</code></pre>
+<blockquote>
+<p>返回0-5   <strong>（但不包含5）</strong></p>
+</blockquote>
+<pre><code>var s='hello world';
+console.log(s.substring(7));
+</code></pre>
+<pre><code>orld
+</code></pre>
+<blockquote>
+<p>从索引7开始</p>
+</blockquote>
+<hr>
+<h4 id="数组">数组</h4>
+<hr>
+<p>js数组可以包含任意数据类型，并通过索引来访问每个元素。</p>
+<h5 id="获取array的长度arrlength">获取Array的长度—arr.length</h5>
+<pre><code>var s=[1,true,'字符串',null];
+console.log(s.length);
+</code></pre>
+<pre><code>结果：4
+</code></pre>
+<blockquote>
+<p><strong>请注意：</strong>  直接给数组赋予一个新的长度会使数组大小发生改变。</p>
+</blockquote>
+<pre><code>var s=[1,true,'字符串',null];
+s.length=6;
+console.log(s);
+</code></pre>
+<pre><code>结果：[ 1, true, '字符串', null, undefined, undefined ]
+</code></pre>
+<hr>
+<h5 id="修改数组元素的值">修改数组元素的值</h5>
+<p>通过索引来进行修改。</p>
+<pre><code>var s=['A',123,&quot;C&quot;];
+s[1]='234';
+console.log(s[1]);
+</code></pre>
+<pre><code>234
+</code></pre>
+<blockquote>
+<p>**请注意：**如果通过索引赋值时，索引超过范围，会引起Array大小的改变。</p>
+</blockquote>
+<pre><code>var s=['A',123,&quot;C&quot;];
+s[4]='234';
+console.log(s);
+</code></pre>
+<pre><code> 结果:[&quot;A&quot;, 123, &quot;C&quot;, undefined, &quot;234&quot;]
+</code></pre>
+<hr>
+<h5 id="搜索指定元素的位置indexof">搜索指定元素的位置—indexOf()</h5>
+<pre><code>var s=[10,20,30,'30'];
+console.log(s.indexOf(30));
+console.log(s.indexOf('30'));
+</code></pre>
+<pre><code>2
+3
+</code></pre>
+<blockquote>
+<p>注意<code>'30'</code>和<code>30</code>是不同的。</p>
+</blockquote>
+<hr>
+<h6 id="数组截取slice相当于字符串的substring">数组截取—slice（相当于字符串的substring()）</h6>
+<pre><code>var array=['A','B','C'];
+console.log(array.slice(1,2));//从1开始到2（但不包含2）
+</code></pre>
+<pre><code>结果：[ 'B' ]
+</code></pre>
+<blockquote>
+<p><strong>注意：</strong> 截取数组得到的一定是数组</p>
+</blockquote>
+<pre><code>var array=['A','B','C'];
+console.log(array.slice());
+</code></pre>
+<pre><code>[ 'A', 'B', 'C' ]
+</code></pre>
+<blockquote>
+<p><strong>注意：</strong> 如果不给<code>slice</code>任何参数,则截取整个数组。利用这一点可以很容易复制一个数组。</p>
+</blockquote>
+<hr>
+<h5 id="数组追加元素push及删除末尾元素pop">数组追加元素（push）及删除末尾元素（pop）</h5>
+<p><code>push</code>:向末尾追加若干元素；</p>
+<pre><code>var array=['A','B','C'];
+array.push('2',3);
+console.log(array);
+</code></pre>
+<pre><code>结果:[ 'A', 'B', 'C', '2', 3 ]
+</code></pre>
+<p><code>pop</code>：删除数组最后的元素。</p>
+<pre><code>var array=['A','B','C'];
+array.pop();//第一次删除
+console.log(array);
+array.pop();第二次删除
+console.log(array);
+array.pop();//第三次删除
+console.log(array);
+</code></pre>
+<pre><code>结果：[ 'A', 'B' ]
+      [ 'A' ]
+      []
+</code></pre>
+<blockquote>
+<p>如果数组为空，执行pop也不会报错，只是返回一个空数组。</p>
+</blockquote>
+<hr>
+<h5 id="数组头部插入元素unshift及删除头部元素shift">数组头部插入元素（unshift）及删除头部元素（shift）</h5>
+<p><code>unshift</code>：数组头部插入元素。</p>
+<pre><code>var s=['A','B','C'];
+s.unshift('23',true,null);
+console.log(s);
+</code></pre>
+<pre><code>结果：[ '23', true, null, 'A', 'B', 'C' ]
+</code></pre>
+<p><code>shift</code>：删除头部的元素。</p>
+<pre><code>var s=['A','B','C'];
+s.shift();
+console.log(s);
+</code></pre>
+<pre><code>结果：[ 'B', 'C' ]
+</code></pre>
+<hr>
+<h5 id="数组排序sort">数组排序—sort</h5>
+<ul>
+<li>按照字母排序：</li>
+</ul>
+<pre><code>var s=['B','C','A'];
+s.sort();
+console.log(s);
+</code></pre>
+<pre><code>结果：[ 'A', 'B', 'C' ]
+</code></pre>
+<ul>
+<li>按照数字排序</li>
+</ul>
+<pre><code>var s=[2,1,3];
+s.sort();
+console.log(s);
+</code></pre>
+<pre><code>结果：1,2,3
+</code></pre>
+<ul>
+<li>数字和数字字符串混搭也可以排序</li>
+</ul>
+<pre><code>var s=['2',1,'3'];
+s.sort();
+console.log(s);
+</code></pre>
+<pre><code>结果：[ 1, '2', '3' ]
+</code></pre>
+<ul>
+<li>如果有很多种字符则按照ASCII码进行排序（猜测）</li>
+</ul>
+<pre><code>var s=['Z',':','}'];
+s.sort();
+console.log(s);
+</code></pre>
+<pre><code>结果：[ ':', 'Z', '}' ]
+</code></pre>
+<hr>
+<h5 id="反转reverse">反转reverse</h5>
+<pre><code>var s=['A',23,null];
+s.reverse();
+console.log(s);
+</code></pre>
+<pre><code>结果：[ null, 23, 'A' ]
+</code></pre>
+<hr>
+<h5 id="修改数据的万能方法splice">修改数据的万能方法—splice</h5>
+<ul>
+<li><strong>定义：</strong> 可以从指定的索引开始删除若干元素，然后从该位置添加若干元素</li>
+<li><strong>用法：</strong><code>splice(位置,删除个数,添加的内容);</code>
+<ul>
+<li><strong>删除元素，并添加元素：</strong></li>
+</ul>
+<pre><code>var s=['A','B','C'];
+s.splice(1,2,'Google','BaiDu');
+console.log(s);
+</code></pre>
+<pre><code>  结果：[ 'A', 'Google', 'BaiDu' ]
+</code></pre>
+<ul>
+<li><strong>只删除不添加：</strong></li>
+</ul>
+<pre><code>var s=['A','B','C'];
+s.splice(1,2);
+console.log(s);
+</code></pre>
+<pre><code>  结果：[ 'A' ]
+</code></pre>
+<ul>
+<li><strong>不删除只添加：</strong></li>
+</ul>
+<pre><code>var s=['A','B','C'];
+s.splice(1,0,'Google','BaiDu');
+console.log(s);
+</code></pre>
+<pre><code>  结果：[ 'A', 'Google', 'BaiDu', 'B', 'C' ]
+</code></pre>
+<blockquote>
+<p>不删除删除个数设置为0就行。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h5 id="数组合并concat">数组合并—concat</h5>
+<pre><code>var a=['A','B','C'];
+var b=[1,2,3];
+console.log(a.concat('@','$',b));
+</code></pre>
+<pre><code>结果：[ 'A', 'B', 'C', '@', '$', 1, 2, 3 ]
+</code></pre>
+<blockquote>
+<p>a和b连接，并形成一个新的数组。</p>
+</blockquote>
+<hr>
+<h5 id="数组用指定字符连接起来并返回字符串join">数组用指定字符连接起来并返回字符串—join</h5>
+<pre><code>var s=[1,2,'C'];
+console.log(s.join('-'));
+</code></pre>
+<pre><code>结果：1-2-C
+</code></pre>
+<blockquote>
+<p>如果数组元素不是字符串则先转换我字符串在拼接起来。</p>
+</blockquote>
+<hr>
+<h4 id="对象">对象</h4>
+<pre><code>var xiaoming={
+    name:'小明',
+    birth:1990,
+    'middle-school':'NYZ NO1 middle school'
+}
+</code></pre>
+<h5 id="获取某一属性">获取某一属性：</h5>
+<ul>
+<li>正常访问：</li>
+</ul>
+<pre><code>console.log(xiaoming.name);
+console.log(xiaoming['middle-school']);//属性名中包含特殊字符
+</code></pre>
+<pre><code>结果：小明
+</code></pre>
+<blockquote>
+<ul>
+<li>如果属性名中包含特殊字符，则用[''];</li>
+<li>JavaScript所有对象的属性都是字符串，不过属性对应的值可以是任意类型。</li>
+</ul>
+</blockquote>
+<ul>
+<li>如果属性不存在：则返回<code>undefined</code></li>
+</ul>
+<pre><code>console.log(xiaoming.age);
+</code></pre>
+<pre><code>结果：undefined
+</code></pre>
+<hr>
+<h5 id="添加属性与删除属性">添加属性与删除属性：</h5>
+<ul>
+<li>添加属性：</li>
+</ul>
+<pre><code>xiaoming.age=18;
+console.log(xiaoming.age);
+</code></pre>
+<pre><code>结果：18;
+</code></pre>
+<ul>
+<li>删除属性：</li>
+</ul>
+<pre><code>delete xiaoming.age;
+console.log(xiaoming.age);
+</code></pre>
+<pre><code>结果：undefined
+</code></pre>
+<blockquote>
+<p>删除一个不存在的属性也不会报错；</p>
+</blockquote>
+<hr>
+<h5 id="判断对象是否包含某个属性in与hasownproperty">判断对象是否包含某个属性—<code>in</code>与<code>hasOwnProperty()</code></h5>
+<ul>
+<li><code>in</code>：判断某个属性是否属于这个对象，包含继承过来的对象。<pre><code>console.log('name' in xiaoming);//自身的对象
+console.log('toString' in xiaoming);//继承过来的对象
+</code></pre>
+<pre><code>  结果:true
+       true
+</code></pre>
+</li>
+<li><code>hasOwnProperty()</code> ：判断某个属性是否属于这个对象，不包含继承对象。<pre><code>console.log(xiaoming.hasOwnProperty('name'));//自身的对象
+console.log(xiaoming.hasOwnProperty('toString'));//继承过来的对象
+</code></pre>
+<pre><code>  结果：true
+      false
+</code></pre>
+</li>
+</ul>
+<hr>
+<h5 id="javascript对false的定义nullundefined-nan0和空字符串都为false">JavaScript对false的定义：null，undefined、NaN，0和空字符串都为false</h5>
+<hr>
+<h5 id="forin">for...in</h5>
+<p>循环出xiaoming对象的所有属性：</p>
+<pre><code>for(var s in xiaoming){
+    console.log(s);
+}
+</code></pre>
+<pre><code>结果：name
+     birth
+     middle-school
+</code></pre>
+<p>由于数组也是对象，而他每个元素的索引被视为属性则如下：</p>
+<pre><code>var arr=['A','B','C'];
+for(var s in arr ){
+    console.log(s);
+    console.log(arr[s]);
+}
+</code></pre>
+<pre><code>结果：0
+     A
+     1
+     B
+     2
+     C
+</code></pre>
+<p><strong>注意：</strong> for...in对<strong>数组</strong>的循环得到的是String而不是字符串。</p>
+<hr>
+<h4 id="map">Map</h4>
+<p><strong>背景：</strong> javaScript中的对象类似于其他语言中的<code>Map</code>，但是可但是javaScript总的对象不能以<code>Number</code>作为属性值。为了解决这个问题ES6引入新的数据类型：<code>map</code>。</p>
+<p><strong>定义：</strong></p>
+<ul>
+<li><code>var m=new Map(二维数组);</code>//放入一个二维数组</li>
+</ul>
+<pre><code>var m=new Map([['张三',56],['李四',45]]);//
+console.log(m.get('张三'));
+</code></pre>
+<pre><code>结果：56
+</code></pre>
+<ul>
+<li><code>var m=new Map();</code>//初始一个空的 ,用<code>set</code>添加一个属性</li>
+</ul>
+<pre><code>var m=new Map();
+m.set(1234567,'张三');
+console.log(m.get(1234567));
+</code></pre>
+<pre><code>结果：张三
+</code></pre>
+<ul>
+<li>添加一条数据-<code>set</code></li>
+</ul>
+<pre><code>var m=new Map();
+m.set(1234567,'张三');
+console.log(m.get(1234567));
+</code></pre>
+<pre><code>结果：张三
+</code></pre>
+<ul>
+<li>删除一条数据-<code>delete</code></li>
+</ul>
+<pre><code>var m=new Map();
+m.set(1,'张三');
+m.set(2,'李四');
+m.delete(2);
+console.log(m.get(2));
+</code></pre>
+<pre><code>结果：undefined
+</code></pre>
+<ul>
+<li>判断一个map中是否包含某个key-<code>has</code></li>
+</ul>
+<pre><code>var m=new Map();
+m.set(1,'1');
+m.set(2,'2');
+m.set(3,'3');
+console.log(m.has(1));
+console.log(m.has(4));
+</code></pre>
+<pre><code>结果：true
+    false
+</code></pre>
+<hr>
+<h4 id="set">set</h4>
+<p>set和map类似但是不存在<code>value</code>。</p>
+<p><strong>定义：</strong></p>
+<ul>
+<li><code>var set=new Set();</code>//设置一个空的set</li>
+</ul>
+<pre><code>var set=new Set();
+set.add(2);
+set.add('3');
+console.log(set);
+</code></pre>
+<pre><code>结果：Set { 2, '3' }
+</code></pre>
+<ul>
+<li>利用一维数组：var set=new set(一维数组);</li>
+</ul>
+<pre><code>var set=new Set([2,3,null]);
+console.log(set);
+</code></pre>
+<pre><code>结果：Set { 2, 3, null }
+</code></pre>
+<ul>
+<li>删除元素-delete</li>
+</ul>
+<pre><code>var set=new Set(['12',12]);
+set.delete(12);
+console.log(set);
+</code></pre>
+<pre><code>结果：Set{'12'}
+</code></pre>
+<hr>
+<h4 id="iterable类型">iterable类型</h4>
+<p><code>Array、Map、Set</code>属于iterable类型。iterable类型可以用<code>for...of</code>来遍历。用法如下：</p>
+<ul>
+<li>遍历set</li>
+</ul>
+<pre><code>var set=new Set(['A','B','C']);
+for(var s of set){
+    console.log(s);
+}
+</code></pre>
+<pre><code>结果：A
+     B
+     C
+</code></pre>
+<hr>
+<h5 id="forof与forin区别"><code>for...of</code>与<code>for...in</code>区别</h5>
+<ul>
+<li><code>for...in</code>由于历史遗留问题，他遍历的实际是属性的名称。
+<ul>
+<li>一个数组实际上是一个对象，他的元素的索引是属性。当;我们手动给数组添加一个属性,<code>for...in</code>就会得到意想不到的结果。如下例子:<pre><code>var array=['A','B','C'];
+array.name='arrayName';
+for(var a in array){
+console.log(a);
+}
+console.log(array.length);
+</code></pre>
+<pre><code>  结果：0
+      1
+      2
+      name
+      4
+</code></pre>
+<blockquote>
+<p>循环将把意外添加的属性也循环出来。但是长度中又不包含name，你说矛盾不，矛盾不。这就是引入<code>for...of</code>的原因。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="iterable最好的循环方式-foreach">iterable最好的循环方式-<code>forEach</code></h5>
+<ul>
+<li>Array</li>
+</ul>
+<pre><code>var s=['a','b','c'];
+forEach(function(element,index,array){
+    console.log(element);//element： 指向当前元素的值
+    console.log(index);//index：指向当前索引
+    console.log(array);//array： 指向array对象本身
+})
+</code></pre>
+<pre><code>结果：
+a
+0
+[ 'a', 'b', 'c' ]
+b
+1
+[ 'a', 'b', 'c' ]
+c
+2
+[ 'a', 'b', 'c' ]
+</code></pre>
+<ul>
+<li>Set</li>
+</ul>
+<pre><code>var set=new Set(['A','B','C']);
+set.forEach(function(element,index,set){
+    console.log(element);//element： 指向当前元素
+    console.log(index);//index：指向当前元素
+    console.log(set);//array： 指向set本身
+});
+</code></pre>
+<pre><code>    结果：
+    A
+    A
+    Set { 'A', 'B', 'C' }
+    B
+    B
+    Set { 'A', 'B', 'C' }
+    C
+    C
+    Set { 'A', 'B', 'C' }
+</code></pre>
+<ul>
+<li>Map</li>
+</ul>
+<pre><code>var map=new Map([['张三',18],['李四',16],['王麻子',56]]);
+map.forEach(function(value,key,map){
+    console.log(value);//element： 指向当前值
+    console.log(key);//index：指向当前键
+    console.log(map);//array： 指向map本身
+});
+</code></pre>
+<pre><code>    结果：
+    18
+    张三
+    Map { '张三' =&gt; 18, '李四' =&gt; 16, '王麻子' =&gt; 56 }
+    16
+    李四
+    Map { '张三' =&gt; 18, '李四' =&gt; 16, '王麻子' =&gt; 56 }
+    56
+    王麻子
+    Map { '张三' =&gt; 18, '李四' =&gt; 16, '王麻子' =&gt; 56 }
+</code></pre>
+<ul>
+<li>JS不要求参数必须一致-因此可以忽略一些不比较的参数</li>
+</ul>
+<pre><code>var map=new Map([['张三',18],['李四',16],['王麻子',56]]);
+map.forEach(function(value){
+    console.log(value);//value： 指向当前值
+});
+</code></pre>
+<pre><code>    结果：
+    18
+    16
+    56
+</code></pre>
+<blockquote>
+<p>现在有一个问题只能输出值，而不能输入index或者array</p>
+</blockquote>
+<hr>
+<h4 id="函数">函数</h4>
+<h5 id="任何函数都有返回值">任何函数都有返回值</h5>
+<p>如果没有<code>return</code>或者<code>return</code>的为空，则返回<code>undefined</code></p>
+<h5 id="函数也是对象">函数也是对象</h5>
+<p>所以可以把函数赋值给变量，例如：</p>
+<pre><code>var a=function(x){
+    if(x&gt;=0){
+        return x;
+    }else{
+        return -x;
+    }
+}
+console.log(a(1));
+</code></pre>
+<pre><code>结果：
+1
+</code></pre>
+<h5 id="js允许传入任意多个参数多少都行">JS允许传入任意多个参数，多少都行</h5>
+<p>例如：</p>
+<pre><code>var a=function(x){
+    if(x&gt;=0){
+        return x;
+    }else{
+        return -x;
+    }
+}
+console.log(a());
+</code></pre>
+<pre><code>结果：NaN
+</code></pre>
+<blockquote>
+<p>如果没有传入参数：则默认参数为<code>undefined</code></p>
+</blockquote>
+<h5 id="关键字-arguments-单词论据的意思">关键字 <code>arguments</code>-单词论据的意思</h5>
+<ul>
+<li>它只在函数内部起作用</li>
+<li>它永远指向传入的所有参数</li>
+<li>它类似于array但不是array<br>
+例如：</li>
+</ul>
+<pre><code>function foo(x){
+console.log(arguments);
+for(var i=0;i&lt;arguments.length;i++){
+console.log(arguments[i]);
+}
+}
+foo(10,20,30);
+</code></pre>
+<pre><code>结果：
+{ '0': 10, '1': 20, '2': 30 }
+10
+20
+30
+</code></pre>
+<ul>
+<li>它常用于判断参数的个数<br>
+例如：<code>foo(a[,b],c)</code>b是可选参数。//接收2-3个参数，b是可选参数。如果只传2个参数，b默认为<code>null</code>来遍历。用法如下：</li>
+</ul>
+<h5 id="关键字获取参数以外的参数-rest">关键字获取参数以外的参数-<code>rest</code></h5>
+<p>定义：<code>...rest</code></p>
+<pre><code>function foo(a,b,...rest){
+console.log(a);
+console.log(b);
+console.log(rest);
+}
+foo(1,2,3,4,5);
+</code></pre>
+<h5 id="函数的变量作用域-内部函数访问外部函数定义的变量">函数的变量作用域-内部函数访问外部函数定义的变量</h5>
+<p>方法：函数是可以嵌套的。<br>
+例如：</p>
+<pre><code>function foo(){
+var x=1;
+function bar(){
+    var y=x+1;
+    console.log('结果'+y);
+}
+bar();
+}
+foo();
+</code></pre>
+<pre><code>结果：2
+</code></pre>
+<blockquote>
+<p>外部函数不可以访问内部函数定义的变量。</p>
+</blockquote>
+<h5 id="函数-变量置顶">函数-变量置顶</h5>
+<p>变量置顶：指的是提升变量的声明、声明、声明而不是赋值。</p>
+<h5 id="全局作用域">全局作用域</h5>
+<ul>
+<li>JavaScript有一个默认的全局对象window</li>
+<li>全局作用域的变量实际上被绑定到window的一个属性上</li>
+<li>JavaScript实际上只有一个全局作用域，只有一个，只有一个，任何变量（函数、函数、函数也视为变量）、</li>
+</ul>
+<pre><code>'use strict';
+var course='Learn JavaScript';
+alert(course);
+alert(window.course);
+</code></pre>
+<blockquote>
+<p>注意：一定要用<code>alert</code>不要用<code>console</code>，用<code>console</code>执行不成功，不知道为什么；</p>
+</blockquote>
+<p>大胆尝试</p>
+<pre><code></code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://marsleoguo.github.io/tag/bUss4I4CjFi/" class="tag">
+                    javaScript
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://marsleoguo.github.io/post/关于Shell/">
+                  <h3 class="post-title">
+                    关于Shell
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
