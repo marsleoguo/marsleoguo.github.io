@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://marsleoguo.github.io</id>
     <title>希言</title>
-    <updated>2020-05-03T02:26:01.489Z</updated>
+    <updated>2020-05-03T02:29:08.276Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://marsleoguo.github.io"/>
     <link rel="self" href="https://marsleoguo.github.io/atom.xml"/>
@@ -444,7 +444,8 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
         <link href="https://marsleoguo.github.io/post/创建快捷键/">
         </link>
         <updated>2017-08-05T03:50:14.000Z</updated>
-        <content type="html"><![CDATA[<p>打开终端，输入如下命令：</p>
+        <content type="html"><![CDATA[<!-- more -->
+<p>打开终端，输入如下命令：</p>
 <p><code>sudo vim /usr/share/applications/intellij-idea.desktop</code><br>
 将下面的内容粘贴到 <code>intellij-idea.desktop</code> 文件中：</p>
 <pre><code>[Desktop Entry]
@@ -469,17 +470,8 @@ Encoding=UTF-8
         <link href="https://marsleoguo.github.io/post/对注册表项xxxx的访问被拒绝。的解决办法/">
         </link>
         <updated>2017-08-05T03:50:14.000Z</updated>
-        <summary type="html"><![CDATA[<ol>
-<li>
-<p>首先打开注册表编辑器，XP系统从开始菜单，运行，输入 regedit ，回车；Windows Vista或者以上系统，点开始菜单，搜索程序和文件，输入regedit ，然后点击 regedit.exe 这个文件，如下：<br>
-<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1309172353a31c9dc6f739d938.png" alt="" loading="lazy"></p>
-</li>
-<li>
-<p>注册表编辑器导航到 <code>HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main</code> 这个项<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1309172357a82a657a9cc355df.png" alt="" loading="lazy"></p>
-</li>
-</ol>
-]]></summary>
-        <content type="html"><![CDATA[<ol>
+        <content type="html"><![CDATA[<!-- more -->
+<ol>
 <li>
 <p>首先打开注册表编辑器，XP系统从开始菜单，运行，输入 regedit ，回车；Windows Vista或者以上系统，点开始菜单，搜索程序和文件，输入regedit ，然后点击 regedit.exe 这个文件，如下：<br>
 <img src="http://pp05hamo9.bkt.clouddn.com/picGo/1309172353a31c9dc6f739d938.png" alt="" loading="lazy"></p>
@@ -502,23 +494,7 @@ Encoding=UTF-8
         <link href="https://marsleoguo.github.io/post/多端口部署操作/">
         </link>
         <updated>2017-07-19T03:20:02.000Z</updated>
-        <summary type="html"><![CDATA[<h1 id="多端口部署操作">多端口部署操作</h1>
-<hr>
-<h2 id="mysql多端口部署操作">mysql多端口部署操作</h2>
-<h3 id="部署前说明">部署前说明</h3>
-<p>部署mysql多端口前，请确保服务器上已经有mysql数据库。这里不在重复，mysql数据库安装及配置。</p>
-<h3 id="创建数据库存放目录">创建数据库存放目录</h3>
-<p>在Xshell或SSH上登录服务器，在控制台中使用<code>mkdir -p /home/mysql/mysqlDB/文件夹名称</code>，创建数据存放目录。</p>
-<blockquote>
-<p>注:多端口可以在data目录后追加端口号，这样便利后期查询启动错误日志。例如：</p>
-</blockquote>
-<pre><code>mkdir -p /home/mysql/mysqlDB/data3306
-mkdir -p /home/mysql/mysqlDB/data4306
-</code></pre>
-<p>如下图所示：<br>
-<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494309506470.png" alt="Alt text" loading="lazy"></p>
-]]></summary>
-        <content type="html"><![CDATA[<h1 id="多端口部署操作">多端口部署操作</h1>
+        <content type="html"><![CDATA[<!-- more -->
 <hr>
 <h2 id="mysql多端口部署操作">mysql多端口部署操作</h2>
 <h3 id="部署前说明">部署前说明</h3>

@@ -1,104 +1,106 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>多端口部署操作 | 希言</title>
-<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588472742962">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588472941850">
 <link rel="stylesheet" href="https://marsleoguo.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="多端口部署操作 | 希言 - Atom Feed" href="https://marsleoguo.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="多端口部署操作
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
 
 mysql多端口部署操作
 部署前说明
 部署mysql多端口前，请确保服务器上已经有mysql数据库。这里不在重复，mysql数据库安装及配置。
 创建数据库存放目录
-在Xshell或SSH上登录服务器，在控制台中使用mkdi..." />
+在Xshell或SSH上登录服务器，在控制台中使用mkdir -p /h..." />
     <meta name="keywords" content="linux" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://marsleoguo.github.io">
-  <img class="avatar" src="https://marsleoguo.github.io/images/avatar.png?v=1588472742962" alt="">
-  </a>
-  <h1 class="site-title">
-    希言
-  </h1>
-  <p class="site-description">
-    希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://marsleoguo.github.io">
+        <img src="https://marsleoguo.github.io/images/avatar.png?v=1588472941850" class="site-logo">
+        <h1 class="site-title">希言</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
       
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    </div>
   </div>
-  <div class="social-container">
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+      
+    </div>
+    <div class="site-description">
+      希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://marsleoguo.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              多端口部署操作
-            </h2>
-            <div class="post-info">
-              <span>
-                2017-07-19
-              </span>
-              <span>
-                8 min read
-              </span>
-              
-                <a href="https://marsleoguo.github.io/tag/5OhUe5ov1M/" class="post-tag">
-                  # linux
-                </a>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">多端口部署操作</h2>
+            <div class="post-date">2017-07-19</div>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h1 id="多端口部署操作">多端口部署操作</h1>
+            <div class="post-content" v-pre>
+              <!-- more -->
 <hr>
 <h2 id="mysql多端口部署操作">mysql多端口部署操作</h2>
 <h3 id="部署前说明">部署前说明</h3>
@@ -369,105 +371,44 @@ et引擎的名字,这个设置Catalina1--&gt;
 <img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494472002998.png" alt="Alt text" loading="lazy"></li>
 </ol>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#%E5%A4%9A%E7%AB%AF%E5%8F%A3%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C">多端口部署操作</a>
-<ul>
-<li><a href="#mysql%E5%A4%9A%E7%AB%AF%E5%8F%A3%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C">mysql多端口部署操作</a>
-<ul>
-<li><a href="#%E9%83%A8%E7%BD%B2%E5%89%8D%E8%AF%B4%E6%98%8E">部署前说明</a></li>
-<li><a href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E6%94%BE%E7%9B%AE%E5%BD%95">创建数据库存放目录</a></li>
-<li><a href="#%E5%88%9B%E5%BB%BAmysqlsock%E4%BB%A3%E7%90%86%E6%96%87%E4%BB%B6%E5%A4%B9">创建mysqlSock代理文件夹</a></li>
-<li><a href="#%E5%A4%8D%E5%88%B6%E5%92%8C%E9%85%8D%E7%BD%AEmycnf">复制和配置my.cnf</a>
-<ul>
-<li><a href="#%E5%A4%8D%E5%88%B6mycnf%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">复制my.cnf配置文件：</a></li>
-<li><a href="#%E9%85%8D%E7%BD%AEmycnf%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">配置my.cnf配置文件：</a></li>
-</ul>
-</li>
-<li><a href="#%E8%B5%8B%E4%BA%88%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93">赋予目录权限和初始化数据库</a></li>
-<li><a href="#%E5%90%AF%E5%8A%A8mysql%E5%A4%9A%E7%AB%AF%E5%8F%A3%E5%92%8Croot%E7%94%A8%E6%88%B7%E8%AE%BE%E7%BD%AE">启动mysql多端口和root用户设置</a></li>
-<li><a href="#%E5%A4%9A%E7%AB%AF%E5%8F%A3%E7%99%BB%E9%99%86%E5%B9%B6%E8%AE%BE%E7%BD%AE%E8%BF%9C%E7%A8%8B%E7%99%BB%E9%99%86">多端口登陆并设置远程登陆</a></li>
-<li><a href="#%E8%AE%BE%E7%BD%AE%E9%98%B2%E7%81%AB%E5%A2%99">设置防火墙</a></li>
-<li><a href="#%E5%81%9C%E6%AD%A2%E6%9C%8D%E5%8A%A1%E5%92%8C%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1">停止服务和启动服务</a></li>
-</ul>
-</li>
-<li><a href="#tomcat%E5%A4%9A%E7%AB%AF%E5%8F%A3%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C">tomcat多端口部署操作</a>
-<ul>
-<li><a href="#%E9%83%A8%E7%BD%B2%E5%89%8D%E8%AF%B4%E6%98%8E-2">部署前说明</a></li>
-<li><a href="#tomcat%E9%83%A8%E7%BD%B2%E5%89%8D%E9%85%8D%E7%BD%AE">tomcat部署前配置</a></li>
-<li><a href="#%E8%AF%B4%E6%98%8E%E7%BA%A2%E8%89%B2%E9%83%A8%E5%88%86%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F">说明:红色部分需要注意</a></li>
-<li><a href="#%E5%81%9C%E6%AD%A2tomcat%E6%9C%8D%E5%8A%A1%E5%92%8C%E9%87%8D%E5%90%AFtomcat%E6%9C%8D%E5%8A%A1">停止tomcat服务和重启tomcat服务</a>
-<ul>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B">查看进程：</a></li>
-<li><a href="#%E5%81%9C%E6%AD%A2%E8%BF%9B%E7%A8%8B">停止进程：</a></li>
-<li><a href="#%E5%90%AF%E5%8A%A8%E8%BF%9B%E7%A8%8B">启动进程：</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
-          </article>
+            
+              <div class="tag-container">
+                
+                  <a href="https://marsleoguo.github.io/tag/5OhUe5ov1M/" class="tag">
+                    linux
+                  </a>
+                
+              </div>
+            
+            
+
+            
+
+          </div>
+
         </div>
-
-        
-
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://marsleoguo.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
       </div>
     </div>
 
-    <script>
-      hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+AOS.init();
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
+</script>
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
 
-    </script>
+
+
+
+
   </body>
 </html>

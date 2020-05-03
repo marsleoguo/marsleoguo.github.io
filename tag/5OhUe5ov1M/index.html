@@ -1,133 +1,138 @@
+<!DOCTYPE html>
 <html>
   <head>
-  <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>linux | 希言</title>
-<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588472742962">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://marsleoguo.github.io/favicon.ico?v=1588472941850">
 <link rel="stylesheet" href="https://marsleoguo.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="linux | 希言 - Atom Feed" href="https://marsleoguo.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-  <meta name="description" content="希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。" />
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。">
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://marsleoguo.github.io">
-  <img class="avatar" src="https://marsleoguo.github.io/images/avatar.png?v=1588472742962" alt="">
-  </a>
-  <h1 class="site-title">
-    希言
-  </h1>
-  <p class="site-description">
-    希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-</div>
+    <div id="app" class="main">
 
-        <div class="current-tag-container">
-            <h2 class="title">
-                标签：# linux
-            </h2> 
-        </div>
-        <div class="post-container">
-  
-    <article class="post">
-      <a href="https://marsleoguo.github.io/post/多端口部署操作/">
-        <h2 class="post-title">多端口部署操作</h2>
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://marsleoguo.github.io">
+        <img src="https://marsleoguo.github.io/images/avatar.png?v=1588472941850" class="site-logo">
+        <h1 class="site-title">希言</h1>
       </a>
-      <div class="post-info">
-        <span>
-          2017-07-19
-        </span>
-        <span>
-          8 min read
-        </span>
-        
-          <a href="https://marsleoguo.github.io/tag/5OhUe5ov1M/" class="post-tag">
-            # linux
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        <h1 id="多端口部署操作">多端口部署操作</h1>
-<hr>
-<h2 id="mysql多端口部署操作">mysql多端口部署操作</h2>
-<h3 id="部署前说明">部署前说明</h3>
-<p>部署mysql多端口前，请确保服务器上已经有mysql数据库。这里不在重复，mysql数据库安装及配置。</p>
-<h3 id="创建数据库存放目录">创建数据库存放目录</h3>
-<p>在Xshell或SSH上登录服务器，在控制台中使用<code>mkdir -p /home/mysql/mysqlDB/文件夹名称</code>，创建数据存放目录。</p>
-<blockquote>
-<p>注:多端口可以在data目录后追加端口号，这样便利后期查询启动错误日志。例如：</p>
-</blockquote>
-<pre><code>mkdir -p /home/mysql/mysqlDB/data3306
-mkdir -p /home/mysql/mysqlDB/data4306
-</code></pre>
-<p>如下图所示：<br>
-<img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494309506470.png" alt="Alt text" loading="lazy"></p>
-
-      </div>
-    </article>
-  
-</div>
-
-        <div class="pagination-container">
-  
-  
-</div>
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://marsleoguo.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
       </div>
     </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://marsleoguo.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: linux</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://marsleoguo.github.io/post/多端口部署操作/">
+                  <h2 class="post-title">多端口部署操作</h2>
+                </a>
+                <div class="post-date">
+                  2017-07-19
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
   </body>
 </html>
