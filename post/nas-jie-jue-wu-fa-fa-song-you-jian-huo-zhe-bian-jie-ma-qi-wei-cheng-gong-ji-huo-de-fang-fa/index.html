@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>对注册表项xxxx的访问被拒绝。的解决办法 | 希言</title>
+<title>[NAS] 解决“无法发送邮件”或者“编解码器未成功激活”的方法 | 希言</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -19,14 +19,10 @@
 
 
     <meta name="description" content="
-
-
-首先打开注册表编辑器，XP系统从开始菜单，运行，输入 regedit ，回车；Windows Vista或者以上系统，点开始菜单，搜索程序和文件，输入regedit ，然后点击 regedit.exe 这个文件，如下：
-
-
-
-注册表编..." />
-    <meta name="keywords" content="windows" />
+遇到这个问题“系统事件/由于指定的编解码器未成功激活，音乐或视频无法正确播放或显示。请检查Internet连接”在论坛中找不到答案，但在百度中找到这个，测试成功，与大家分享
+打开你的DSM,作以下修改
+控制面板 &gt; 网络，更改DNS..." />
+    <meta name="keywords" content="nas,裙" />
   </head>
   <body>
     <div id="app" class="main">
@@ -101,33 +97,31 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">对注册表项xxxx的访问被拒绝。的解决办法</h2>
-            <div class="post-date">2017-08-05</div>
+            <h2 class="post-title">[NAS] 解决“无法发送邮件”或者“编解码器未成功激活”的方法</h2>
+            <div class="post-date">2020-05-06</div>
             
             <div class="post-content" v-pre>
               <!-- more -->
-<ol>
-<li>
-<p>首先打开注册表编辑器，XP系统从开始菜单，运行，输入 regedit ，回车；Windows Vista或者以上系统，点开始菜单，搜索程序和文件，输入regedit ，然后点击 regedit.exe 这个文件，如下：<br>
-<img src="https://raw.githubusercontent.com/marsleoguo/bed/master/1309172353a31c9dc6f739d938.png" alt="" loading="lazy"></p>
-</li>
-<li>
-<p>注册表编辑器导航到 <code>HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main</code> 这个项<img src="https://raw.githubusercontent.com/marsleoguo/bed/master/1309172357a82a657a9cc355df.png" alt="" loading="lazy"></p>
-<!--more-->
-</li>
-<li>
-<p>在菜单里点  编辑， 权限，打开权限编辑窗口</p>
-<p>然后，对 当前登录的用户或者用户组，典型的为Administrators用户组，设置完全控制权限</p>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/marsleoguo/bed/master/13091800110aa26c4db4e3636f.png" alt="" loading="lazy"></figure>
-</li>
-</ol>
+<p>遇到这个问题“系统事件/由于指定的编解码器未成功激活，音乐或视频无法正确播放或显示。请检查Internet连接”在论坛中找不到答案，但在百度中找到这个，测试成功，与大家分享</p>
+<p>打开你的DSM,作以下修改<br>
+控制面板 &gt; 网络，更改DNS为114.114.114.114，并保存<br>
+控制面板 &gt; 网络 &gt; 网络界面 &gt; 编辑 &gt; IPv4，关闭“手动设置MTU值”选项，并保存<br>
+控制面板 &gt; 网络 &gt; 网络界面 &gt; 编辑 &gt; IPv6，关闭IPv6，并保存<br>
+控制面板 &gt; 区域选项，选择“与NTP服务器同步”，服务器地址选择 pool.ntp.org，并保存</p>
+<blockquote>
+<p>引用：<a href="http://www.gebi1.com/thread-287421-1-1.html">解决“编解码器未成功激活”的方法</a> <img src="http://www.gebi1.com/template/qu_zuk/img/icon/hot_3.gif" alt="" loading="lazy">)</p>
+</blockquote>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://marsleoguo.github.io/tag/YvUWXejBFJ/" class="tag">
-                    windows
+                  <a href="https://marsleoguo.github.io/tag/eUwC3_630/" class="tag">
+                    nas
+                  </a>
+                
+                  <a href="https://marsleoguo.github.io/tag/SoO36JjYtM/" class="tag">
+                    裙
                   </a>
                 
               </div>
@@ -135,9 +129,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://marsleoguo.github.io/post/myeclipse相关/">
+                <a href="https://marsleoguo.github.io/post/shu-ju-da-ping-yu-shu-ju-ke-shi-hua/">
                   <h3 class="post-title">
-                    myeclipse相关
+                    数据大屏与数据可视化
                   </h3>
                 </a>
               </div>

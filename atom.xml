@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://marsleoguo.github.io</id>
     <title>希言</title>
-    <updated>2020-05-03T06:42:23.655Z</updated>
+    <updated>2020-05-05T22:13:59.276Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://marsleoguo.github.io"/>
     <link rel="self" href="https://marsleoguo.github.io/atom.xml"/>
@@ -10,6 +10,24 @@
     <logo>https://marsleoguo.github.io/images/avatar.png</logo>
     <icon>https://marsleoguo.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 希言</rights>
+    <entry>
+        <title type="html"><![CDATA[[NAS] 解决“无法发送邮件”或者“编解码器未成功激活”的方法]]></title>
+        <id>https://marsleoguo.github.io/post/nas-jie-jue-wu-fa-fa-song-you-jian-huo-zhe-bian-jie-ma-qi-wei-cheng-gong-ji-huo-de-fang-fa/</id>
+        <link href="https://marsleoguo.github.io/post/nas-jie-jue-wu-fa-fa-song-you-jian-huo-zhe-bian-jie-ma-qi-wei-cheng-gong-ji-huo-de-fang-fa/">
+        </link>
+        <updated>2020-05-05T22:09:55.000Z</updated>
+        <content type="html"><![CDATA[<!-- more -->
+<p>遇到这个问题“系统事件/由于指定的编解码器未成功激活，音乐或视频无法正确播放或显示。请检查Internet连接”在论坛中找不到答案，但在百度中找到这个，测试成功，与大家分享</p>
+<p>打开你的DSM,作以下修改<br>
+控制面板 &gt; 网络，更改DNS为114.114.114.114，并保存<br>
+控制面板 &gt; 网络 &gt; 网络界面 &gt; 编辑 &gt; IPv4，关闭“手动设置MTU值”选项，并保存<br>
+控制面板 &gt; 网络 &gt; 网络界面 &gt; 编辑 &gt; IPv6，关闭IPv6，并保存<br>
+控制面板 &gt; 区域选项，选择“与NTP服务器同步”，服务器地址选择 pool.ntp.org，并保存</p>
+<blockquote>
+<p>引用：<a href="http://www.gebi1.com/thread-287421-1-1.html">解决“编解码器未成功激活”的方法</a> <img src="http://www.gebi1.com/template/qu_zuk/img/icon/hot_3.gif" alt="" loading="lazy">)</p>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[数据大屏与数据可视化]]></title>
         <id>https://marsleoguo.github.io/post/shu-ju-da-ping-yu-shu-ju-ke-shi-hua/</id>
@@ -1284,41 +1302,6 @@ tar xzf cerebro-0.8.1.tgz
 <p>链接：https://www.jianshu.com/p/ed3560d1b1d3</p>
 <p>来源：简书</p>
 <p>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[目前有哪些大公司在应用Go语言？]]></title>
-        <id>https://marsleoguo.github.io/post/目前有哪些大公司在应用Go语言？/</id>
-        <link href="https://marsleoguo.github.io/post/目前有哪些大公司在应用Go语言？/">
-        </link>
-        <updated>2019-03-31T11:21:40.000Z</updated>
-        <content type="html"><![CDATA[<!-- more -->
-<p>Go语言是谷歌推出的一种的编程语言，可以在不损失应用程序性能的情况下降低代码的复杂性。谷歌首席软件工程师罗布派克(Rob Pike)说：我们之所以开发Go，是因为过去10多年间软件开发的难度令人沮丧。派克表示，和今天的C++或C一样，Go是一种系统语言。他解释道，&quot;使用它可以进行快速开发，同时它还是一个真正的编译语言，我们之所以现在将其开源，原因是我们认为它已经非常有用和强大。&quot;</p>
-<p>目前应用Go语言的大公司有：</p>
-<p><strong>1、Google</strong></p>
-<p>这个不用多做介绍，作为开发Go语言的公司，当仁不让。Google基于Go有很多优秀的项目，比如：https://github.com/kubernetes/kubernetes ，大家也可以在Github上 https://github.com/google/ 查看更多Google的Go开源项目。</p>
-<p><strong>2、Facebook</strong></p>
-<p>Facebook也在用，为此他们还专门在Github上建立了一个开源组织facebookgo，大家可以通过https://github.com/facebookgo访问查看facebook开源的项目，比如著名的是平滑升级的grace。</p>
-<p><strong>3、腾讯</strong></p>
-<p>腾讯作为国内的大公司，还是敢于尝试的，尤其是Docker容器化这一块，他们在15年已经做了docker万台规模的实践，具体可以参考http://www.infoq.com/cn/articles/tencent-millions-scale-docker-application-practice 。</p>
-<p>主要职责是：</p>
-<p>负责腾讯游戏蓝鲸平台后台开发工作</p>
-<p>负责容器相关的开发工作</p>
-<p>和蓝鲸平台，容器开发有关。腾讯作为主要使用C/C++的公司，使用Go会方便很多，也有很多优势，不过日积月累的C/C++代码很难改造，也不敢动，所以新业务会在Go方面尝试。</p>
-<p><strong>4、百度</strong></p>
-<p>目前所知的百度的使用是在运维这边，是百度运维的一个BFE项目，负责前端流量的接入。他们的负责人在2016年有分享，大家可以看下这个 http://www.infoq.com/cn/presentations/application-of-golang-in-baidu-frontend .</p>
-<p>其次就是百度的消息系统，从其最近的Golang招聘介绍就可以看出来.</p>
-<p>负责公司手百消息通讯系统服务器端开发及维护</p>
-<p><strong>5、京东</strong></p>
-<p>京东云消息推送系统、云存储，以及京东商城等都有使用Go做开发。</p>
-<p><strong>6、小米</strong></p>
-<p>小米对Golang的支持，莫过于运维监控系统的开源，也就是 http://open-falcon.com/ 。</p>
-<p>此外，小米互娱、小米商城、小米视频、小米生态链等团队都在使用Golang。</p>
-<p><strong>7、360</strong></p>
-<p>360对Golang的使用也不少，一个是开源的日志搜索系统Poseidon，托管在Github上，https://github.com/Qihoo360/poseidon.</p>
-<p>还有360的推送团队也在使用，他们还写了篇博文在Golang的官方博客上 https://blog.golang.org/qihoo。</p>
-<p>360直播在招聘Golang开发工程师。</p>
-<p>美团、滴滴、新浪以及七牛等。一般的选择，都是选择用于自己公司合适的产品系统来做，比如消息推送的、监控的、容器的等，Golang特别适合做网络并发的服务，这是他的强项，所以也是被优先用于这些项目。</p>
 ]]></content>
     </entry>
 </feed>
